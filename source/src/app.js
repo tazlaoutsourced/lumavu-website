@@ -9,8 +9,6 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
-  const lerp = (a, b, t) => a + (b - a) * t;
 
   /* ---------- Device scaling ---------- */
   const fits = $$(".fit[data-w]");
@@ -45,7 +43,7 @@
     const go = () => setTimeout(res, 400);
     if (document.readyState === "complete") go(); else addEventListener("load", go, { once: true });
   });
-  // choose the file by how wide the 16:9 loop is actually drawn, ignoring the hero's scroll animation
+  // choose the file by how wide the 16:9 loop is actually drawn
   const pick = (v) => {
     const fit = v.closest(".fit");
     const k = fit ? (+getComputedStyle(fit).getPropertyValue("--k") || 1) : 1;
@@ -216,71 +214,17 @@ void main(){
     return moving;
   };
 
-  /* ---------- Header + hero flight ---------- */
+  /* ---------- Header ---------- */
   const top = $("#top");
-  const hero = $("#hero"), heroStage = $(".hero-stage", hero), heroMark = $("#heroMark"), heroDevice = $("#heroDevice"), heroCopy = $("#heroCopy"), heroCap = $("#heroCap"), cue = $(".scroll-cue");
-  let heroP = -1;
-  const playPill = () => $$(".hero-device .ui-pill.play").find((el) => el.offsetParent !== null) || null;
-  const playIcon = () => { const p = playPill(); return p ? p.querySelector(".ico") : null; };
-  const heroFrame = () => {
-    top.classList.toggle("solid", scrollY > 40);
-    if (RM) return;
-    // Measured against the sticky stage (100svh), not innerHeight, which jumps on phones as the toolbars slide away;
-    // the stage stays the same height, so the flight neither skips ahead nor bounces back.
-    const r = hero.getBoundingClientRect();
-    const vh = heroStage.offsetHeight || innerHeight, vw = innerWidth;
-    const span = Math.max(1, hero.offsetHeight - vh);
-    const p = clamp(-r.top / span);
-    if (Math.abs(p - heroP) < 0.0005) return;
-    heroP = p;
-    // the words leave first
-    const cOut = smooth(0.02, 0.2, p);
-    heroCopy.style.opacity = (1 - cOut).toFixed(3);
-    heroCopy.style.transform = `translate3d(0, ${(-60 * cOut).toFixed(1)}px, 0)`;
-    heroCopy.style.filter = cOut > 0.01 ? `blur(${(6 * cOut).toFixed(1)}px)` : "none";
-    heroCopy.style.visibility = cOut >= 0.999 ? "hidden" : "visible";
-    if (cue) cue.style.opacity = (1 - smooth(0, 0.05, p)).toFixed(3);
-    // the app arrives
-    const dIn = smooth(0.14, 0.44, p);
-    const dScale = 0.84 + 0.16 * (1 - Math.pow(1 - smooth(0.12, 0.5, p), 3));
-    heroDevice.style.opacity = dIn.toFixed(3);
-    heroDevice.style.transform = `translate3d(0, ${(vh * 0.05 * (1 - dIn)).toFixed(1)}px, 0) scale(${dScale.toFixed(4)})`;
-    heroDevice.style.filter = dIn < 0.999 ? `blur(${(4 * (1 - dIn)).toFixed(1)}px)` : "none";
-    // the mark comes to the centre, then settles into the Play button
-    heroMark.classList.toggle("still", p > 0.03);
-    const cx0 = heroMark.offsetLeft, cy0 = heroMark.offsetTop, mw = heroMark.offsetWidth || 1;
-    const toCentre = smooth(0.02, 0.22, p);
-    let x = lerp(cx0, vw / 2, toCentre), y = lerp(cy0, vh * 0.46, toCentre), sc = 1 + 0.12 * toCentre;
-    const icon = playIcon();
-    const land = smooth(0.26, 0.58, p);
-    if (icon && land > 0) {
-      const ir = icon.getBoundingClientRect();
-      const tScale = (ir.width * 0.58) / (mw * 0.668);
-      const tx = ir.left + ir.width * 0.583 - 0.074 * mw * tScale, ty = ir.top + ir.height / 2;
-      const e = land * land * (3 - 2 * land);
-      x = lerp(x, tx, e); y = lerp(y, ty, e); sc = lerp(sc, tScale, Math.pow(land, 0.75));
-    }
-    const mOp = 1 - smooth(0.56, 0.6, p);
-    heroMark.style.transform = `translate3d(${(x - cx0).toFixed(1)}px, ${(y - cy0).toFixed(1)}px, 0) scale(${sc.toFixed(4)})`;
-    heroMark.style.opacity = mOp.toFixed(3);
-    const glowA = 0.5 * (1 - land);
-    heroMark.style.filter = glowA > 0.02 ? `drop-shadow(0 0 ${(40 * (1 - land) + 6).toFixed(0)}px rgba(170,140,255,${glowA.toFixed(2)}))` : "none";
-    heroMark.style.visibility = mOp <= 0.001 ? "hidden" : "visible";
-    if (icon) {
-      icon.style.opacity = smooth(0.55, 0.6, p).toFixed(3);
-      const pill = playPill(); if (pill) pill.classList.toggle("lit", p > 0.58 && p < 0.9);
-    }
-    sky.flash = 0;
-    heroCap.style.opacity = smooth(0.64, 0.74, p).toFixed(3);
-  };
+  const headerFrame = () => { top.classList.toggle("solid", scrollY > 40); };
 
   /* ---------- Main loop ---------- */
   let ticking = false, frameDue = true;
   const onScroll = () => { frameDue = true; };
   addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", () => { heroP = -1; frameDue = true; });
+  addEventListener("resize", () => { frameDue = true; });
   const loop = (now) => {
-    if (frameDue) { heroFrame(); pickSky(); frameDue = false; sky.dirty = true; }
+    if (frameDue) { headerFrame(); pickSky(); frameDue = false; sky.dirty = true; }
     const moving = stepPalette(0.035);
     if (!document.hidden) {
       if (RM) {
