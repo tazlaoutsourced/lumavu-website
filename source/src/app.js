@@ -96,7 +96,7 @@
   const sky = { cur: PALETTES.violet.map((c) => c.slice()), target: PALETTES.violet, k: 1, kT: 1, flash: 0, dirty: true };
   const skySections = $$("[data-sky]");
   const pickSky = () => {
-    const mid = innerHeight / 2;
+    const mid = (H || innerHeight) / 2;
     for (const s of skySections) {
       const r = s.getBoundingClientRect();
       if (r.top <= mid && r.bottom >= mid) { const key = s.dataset.sky, p = PALETTES[key]; if (p && p !== sky.target) { sky.target = p; sky.dirty = true; } sky.kT = LEVEL[key] ?? 1; return; }
@@ -148,13 +148,17 @@ void main(){
     } catch (e) { gl = null; }
   }
 
-  const starC = $("#stars"), sx = starC.getContext("2d");
+  const starC = $("#stars"), sx = starC.getContext("2d"), skyEl = $(".sky");
   let W = 0, H = 0, DPR = 1, stars = [];
   let lastSkyW = 0;
+  // On phones innerHeight changes whenever the browser's toolbars slide in or out. The sky is sized to the screen with
+  // the toolbars hidden (100lvh), which stays put, so nothing is redrawn or rescaled while someone is scrolling.
   const sizeSky = () => {
-    const regen = innerWidth !== lastSkyW || !stars.length;
-    lastSkyW = innerWidth;
-    W = innerWidth; H = innerHeight; DPR = Math.min(devicePixelRatio || 1, 2);
+    const w = skyEl.clientWidth || innerWidth, h = skyEl.clientHeight || innerHeight, dpr = Math.min(devicePixelRatio || 1, 2);
+    if (w === W && h === H && dpr === DPR && stars.length) return;
+    const regen = w !== lastSkyW || !stars.length;
+    lastSkyW = w;
+    W = w; H = h; DPR = dpr;
     starC.width = Math.round(W * DPR); starC.height = Math.round(H * DPR);
     if (gl) { const q = W < 700 ? 0.4 : 0.5; neb.width = Math.round(W * q); neb.height = Math.round(H * q); gl.viewport(0, 0, neb.width, neb.height); }
     if (regen) {
@@ -195,7 +199,7 @@ void main(){
     if (!gl) return;
     gl.uniform2f(U.r, neb.width, neb.height);
     gl.uniform1f(U.t, RM ? 40 : (now - t0) / 1000 + 40);
-    gl.uniform1f(U.s, scrollY / Math.max(1, innerHeight) * 0.085);
+    gl.uniform1f(U.s, scrollY / Math.max(1, H) * 0.085);
     gl.uniform1f(U.fl, sky.flash);
     gl.uniform1f(U.k, sky.k);
     gl.uniform3fv(U.c1, sky.cur[0]); gl.uniform3fv(U.c2, sky.cur[1]); gl.uniform3fv(U.c3, sky.cur[2]);
@@ -214,19 +218,21 @@ void main(){
 
   /* ---------- Header + hero flight ---------- */
   const top = $("#top");
-  const hero = $("#hero"), heroMark = $("#heroMark"), heroDevice = $("#heroDevice"), heroCopy = $("#heroCopy"), heroCap = $("#heroCap"), cue = $(".scroll-cue");
+  const hero = $("#hero"), heroStage = $(".hero-stage", hero), heroMark = $("#heroMark"), heroDevice = $("#heroDevice"), heroCopy = $("#heroCopy"), heroCap = $("#heroCap"), cue = $(".scroll-cue");
   let heroP = -1;
   const playPill = () => $$(".hero-device .ui-pill.play").find((el) => el.offsetParent !== null) || null;
   const playIcon = () => { const p = playPill(); return p ? p.querySelector(".ico") : null; };
   const heroFrame = () => {
     top.classList.toggle("solid", scrollY > 40);
     if (RM) return;
+    // Measured against the sticky stage (100svh), not innerHeight, which jumps on phones as the toolbars slide away;
+    // the stage stays the same height, so the flight neither skips ahead nor bounces back.
     const r = hero.getBoundingClientRect();
-    const span = Math.max(1, hero.offsetHeight - innerHeight);
+    const vh = heroStage.offsetHeight || innerHeight, vw = innerWidth;
+    const span = Math.max(1, hero.offsetHeight - vh);
     const p = clamp(-r.top / span);
     if (Math.abs(p - heroP) < 0.0005) return;
     heroP = p;
-    const vh = innerHeight, vw = innerWidth;
     // the words leave first
     const cOut = smooth(0.02, 0.2, p);
     heroCopy.style.opacity = (1 - cOut).toFixed(3);
