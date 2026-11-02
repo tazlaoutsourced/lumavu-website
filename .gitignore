@@ -6,7 +6,7 @@ _media/
 .preview/
 # Wrangler's local cache
 .wrangler/
-node_modules/
+node_modules
 .DS_Store
 ._*
 __pycache__/
