@@ -224,7 +224,7 @@ void main(){
   const playIcon = () => { const p = playPill(); return p ? p.querySelector(".ico") : null; };
   const heroFrame = () => {
     top.classList.toggle("solid", scrollY > 40);
-    if (RM) return;
+    if (RM || hero.dataset.hero) return;
     // Measured against the sticky stage (100svh), not innerHeight, which jumps on phones as the toolbars slide away;
     // the stage stays the same height, so the flight neither skips ahead nor bounces back.
     const r = hero.getBoundingClientRect();
@@ -273,6 +273,16 @@ void main(){
     sky.flash = 0;
     heroCap.style.opacity = smooth(0.64, 0.74, p).toFixed(3);
   };
+
+  // B: the device fades up when it comes into view, and its Play button glows for a moment
+  if (hero.dataset.hero === "b" && !RM) {
+    heroDevice.classList.add("pre");
+    new IntersectionObserver((es, io) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      heroDevice.classList.remove("pre"); io.disconnect();
+      setTimeout(() => { const pill = playPill(); if (pill) { pill.classList.add("lit"); setTimeout(() => pill.classList.remove("lit"), 1900); } }, 650);
+    }), { threshold: 0.3 }).observe(heroDevice);
+  }
 
   /* ---------- Main loop ---------- */
   let ticking = false, frameDue = true;

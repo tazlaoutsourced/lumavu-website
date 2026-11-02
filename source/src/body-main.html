@@ -41,7 +41,8 @@
 
 <main>
   <!-- ============ HERO ============ -->
-  <section class="hero" id="hero" data-sky="violet">
+  <section class="hero" id="hero" data-sky="violet" data-hero="a">
+    <script>(function(){var h=new URLSearchParams(location.search).get("hero");if(h==="b")document.getElementById("hero").dataset.hero="b"})()</script>
     <div class="hero-stage">
       <div class="hero-mark" id="heroMark" aria-hidden="true"><svg class="mark-svg" viewBox="0 0 100 100"><use href="#mark"/></svg></div>
 
@@ -142,7 +143,7 @@
           <span class="hero-eyebrow"><span class="long">Coming soon to iPhone, iPhone&nbsp;Duo, iPad, Mac and Apple&nbsp;TV</span><span class="short">Coming soon</span></span>
           <h1 class="h1">Television, in a <span class="lit">better light</span></h1>
           <p class="lead long">Lumavu plays the playlists and media servers you already have. Live TV comes with a proper guide, and films come with their artwork. It all stays quick, even when your provider sends you 65,000 of them</p>
-          <p class="lead short">An IPTV player for the playlists you already have, on iPhone, iPad, Mac and Apple&nbsp;TV</p>
+          <p class="lead short">An IPTV player for the playlists you already have, on iPhone, iPhone&nbsp;Duo, iPad, Mac and Apple&nbsp;TV</p>
           <div>
             <form class="join" data-join novalidate>
               <label class="sr" for="email-hero">Email address</label>
@@ -651,3 +652,5 @@
     <div class="pal-foot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>↵</kbd> to open</span><span>The same switcher is in the app on Mac and iPad</span></div>
   </div>
 </div>
+<nav class="hero-pick" aria-label="Preview the opening"><a href="?hero=a" data-pick="a">Option A</a><a href="?hero=b" data-pick="b">Option B</a></nav>
+<script>(function(){var h=document.getElementById("hero").dataset.hero;document.querySelectorAll(".hero-pick a").forEach(function(a){if(a.dataset.pick===h)a.classList.add("on")})})()</script>
