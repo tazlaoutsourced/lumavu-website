@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumavu Support</title>
+<meta name="description" content="Help with Lumavu for Lumavu, the IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV.">
+<link rel="canonical" href="https://lumavu.app/support">
+<meta name="theme-color" content="#07060d">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/red-hat-text-400.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Red Hat Display";src:url(assets/fonts/red-hat-display.woff2) format("woff2");font-weight:300 900;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-400.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-600.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-600.woff2) format("woff2");font-weight:600;font-display:swap}</style>
+<style>
+/* Reading pages: the same night sky, turned down so the words come first. Dark first, with a light reading mode. */
+:root {
+  color-scheme: dark;
+  --bg: #07060d; --panel: #110e1c; --text: #f4f2fb; --muted: rgba(236,232,255,.7); --faint: rgba(236,232,255,.46);
+  --line: rgba(236,232,255,.12); --accent: #a78bff; --glow: rgba(110,70,255,.32); --mark: url(#bg-g);
+  --display: "Red Hat Display", -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --sans: "Red Hat Text", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --brand: "Red Hat Display", "Red Hat Text", -apple-system, system-ui, sans-serif;
+  --mono: "Red Hat Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+}
+:root[data-theme="light"] { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.glow { position: fixed; inset: 0 0 auto; height: 70vh; z-index: -1; pointer-events: none; background: radial-gradient(60% 70% at 75% 0%, var(--glow), transparent 70%), radial-gradient(40% 50% at 10% 10%, rgba(255,90,54,.08), transparent 70%); }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+header.bar .wrap { height: 64px; display: flex; align-items: center; gap: 20px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font: 700 1.2rem/1 var(--brand); letter-spacing: -.02em; }
+.brand svg { width: 24px; height: 24px; filter: drop-shadow(0 0 8px rgba(155,128,255,.45)); }
+header.bar nav { margin-left: auto; display: flex; gap: 22px; font-size: .94rem; }
+header.bar nav a { color: var(--muted); text-decoration: none; }
+header.bar nav a[aria-current] { color: var(--text); }
+@media (max-width: 520px) { header.bar nav { gap: 14px; font-size: .88rem; } }
+main { padding-block: clamp(48px, 8vw, 96px) 80px; }
+.doc { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: clamp(28px, 6vw, 80px); align-items: start; }
+@media (max-width: 820px) { .doc { grid-template-columns: minmax(0, 1fr); } .toc { display: none; } }
+.toc { position: sticky; top: 96px; display: grid; gap: 8px; font-size: .9rem; border-left: 1px solid var(--line); padding-left: 16px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--text); }
+.eyebrow { font: 500 .74rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 600 clamp(2.3rem, 5.6vw, 3.6rem)/1.02 var(--display); letter-spacing: -.034em; margin: 14px 0 18px; text-wrap: balance; }
+h2 { font: 600 1.45rem/1.25 var(--display); letter-spacing: -.02em; margin: 56px 0 12px; text-wrap: balance; scroll-margin-top: 90px; }
+h3 { font: 600 1.06rem/1.4 var(--sans); margin: 28px 0 6px; }
+article p, article li { color: var(--muted); max-width: 40em; }
+article p strong, article li strong { color: var(--text); font-weight: 600; }
+article ul { padding-left: 1.2em; }
+article li { margin-bottom: 6px; }
+.updated { color: var(--faint); font-size: .92rem; }
+.summary { margin-top: 28px; padding: 22px 24px; border-radius: 16px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.summary p { margin: 0; color: var(--text); }
+.summary ul { margin: 10px 0 0; }
+.qa { border-top: 1px solid var(--line); margin-top: 18px; }
+.qa details { border-bottom: 1px solid var(--line); }
+.qa summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 500; color: var(--text); }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font: 300 1.5rem/1 var(--sans); color: var(--muted); transition: transform .25s; }
+.qa details[open] summary::after { transform: rotate(45deg); }
+.qa .a { padding: 0 0 18px; }
+.qa .a p { margin: 0 0 10px; }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 14px; margin-top: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 14px; display: grid; place-items: center; font: 600 .82rem/1 var(--mono); color: var(--text); box-shadow: 0 0 0 1px var(--line) inset; margin-top: 2px; }
+.contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 16px 18px; border-radius: 14px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.contact code { font: 500 1rem/1.4 var(--mono); color: var(--text); user-select: all; word-break: break-all; }
+.contact button { margin-left: auto; border: 0; cursor: pointer; height: 36px; padding: 0 14px; border-radius: 18px; font: 600 .88rem/1 var(--sans); background: var(--text); color: var(--bg); }
+footer { border-top: 1px solid var(--line); padding-block: 32px calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--faint); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer a { color: var(--muted); text-decoration: none; }
+footer .r { margin-left: auto; }
+
+@media (max-width: 820px) { .toc { display: none; } }
+
+.brand svg path { fill: var(--mark); }
+
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="bg-g" x1=".15" y1=".05" x2=".85" y2="1"><stop offset="0" stop-color="#fdfcff"/><stop offset=".5" stop-color="#e9e3fc"/><stop offset="1" stop-color="#b9a9f0"/></linearGradient></defs><path d="M36.17 18.92 L78.63 43.08 Q90.8 50 78.63 56.92 L36.17 81.08 Q24 88 24 74 L24 26 Q24 12 36.17 18.92 Z" fill="url(#bg-g)" stroke="#8f74e8" stroke-opacity=".35"/></svg>Lumavu</a><nav aria-label="Pages"><a href="support.html" aria-current="page">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+<main><div class="wrap doc"><nav class="toc" aria-label="On this page"><a href="#start">Getting started</a><a href="#faq">Common questions</a><a href="#pro">Pro and purchases</a><a href="#contact">Contact us</a></nav>
+<article><h1>Help with Lumavu</h1>
+
+<p class="updated">For Lumavu on iPhone, iPhone Duo, iPad, Mac and Apple TV.</p>
+
+<h2 id="start">Getting started</h2>
+<ol class="steps">
+  <li><span><strong>Add a playlist.</strong> Open Lumavu and choose Add playlist. Pick Xtream Codes, M3U (a link or a file), Jellyfin or Emby, and fill in the details your provider gave you.</span></li>
+  <li><span><strong>Give it a name, a colour and an icon.</strong> They show in the sidebar, which helps once you have more than one.</span></li>
+  <li><span><strong>Add a guide if you need one.</strong> Xtream accounts usually bring their own. For M3U playlists, add the XMLTV link your provider gives you, in the playlist's settings.</span></li>
+  <li><span><strong>No playlist yet?</strong> Choose <em>Try sample movies and series</em> or <em>Add free news channels</em> on the first screen to have a look around.</span></li>
+</ol>
+
+<h2 id="faq">Common questions</h2>
+<div class="qa">
+  <details><summary>Does Lumavu come with channels?</summary><div class="a"><p>No. Lumavu is a player for your own playlists and servers. We don't sell or recommend playlists.</p></div></details>
+  <details><summary>A channel won't play. What can I try?</summary><div class="a"><p>If the channel has more than one copy in your playlists, Lumavu moves to another copy by itself. You can also open the player's ⋯ menu and switch to the other video player, or choose a different copy. In Settings, under Video player, you can set which player Lumavu uses. If nothing plays at all, check the account is active in the playlist's details, where Lumavu shows its expiry date and how many streams it allows.</p></div></details>
+  <details><summary>Why does a Multiview tile say the account is full?</summary><div class="a"><p>Each tile is its own stream, and most IPTV accounts allow only one or two at once. Lumavu plays a channel from another playlist if it has a free stream, and starts the waiting tile by itself when another tile closes.</p></div></details>
+  <details><summary>Live subtitles aren't showing</summary><div class="a"><p>Live subtitles need iOS, iPadOS, macOS or tvOS 26. The first time you pick a language, Lumavu asks to download it, and says on screen while it does. Apple TV writes subtitles but doesn't translate them.</p></div></details>
+  <details><summary>Why can't I download this?</summary><div class="a"><p>Live channels can't be downloaded, and nor can links that only come as HLS (.m3u8). Downloads are part of Lumavu Pro, and on iPhone and iPad they wait for Wi‑Fi unless you allow mobile data in Settings, under Downloads. A download steps aside while you watch something from the same account, then carries on.</p></div></details>
+  <details><summary>Does recording carry on when I close the app?</summary><div class="a"><p>No. Recordings run while Lumavu is open, on iPhone, iPad and Mac.</p></div></details>
+  <details><summary>Can I hide categories I never watch?</summary><div class="a"><p>Yes. On any Live TV, Movies or Series page, open Choose categories. You can hide a whole language across Live TV, films and series in one tap, or a family of categories such as Sport, or single categories. You can also touch and hold a category to hide it.</p></div></details>
+  <details><summary>My playlists aren't showing on my other devices</summary><div class="a"><p>Check that iCloud sync is on in Lumavu's settings, under iCloud, on each device, and that they're all signed in to the same iCloud account. Playlists imported from a file stay on the device you imported them on, so if your provider gives you a link, add that instead.</p></div></details>
+  <details><summary>How does Lumavu look on iPhone Duo?</summary><div class="a"><p>With the phone closed, the outside screen shows the iPhone layout, with tabs along the bottom. Open it and the inside screen switches to the iPad layout, with your playlists in a sidebar. Anything that's playing carries on as you open or close it. It's the same app and the same purchase as on iPhone.</p></div></details>
+  <details><summary>Does it work with Jellyfin and Emby live TV?</summary><div class="a"><p>Not yet. Films and series from Jellyfin and Emby work today.</p></div></details>
+  <details><summary>Is there Chromecast?</summary><div class="a"><p>Not at the moment. AirPlay works from iPhone, iPad and Mac, for streams that play in Apple's player.</p></div></details>
+</div>
+
+<h2 id="pro">Lumavu Pro and purchases</h2>
+<div class="qa">
+  <details><summary>How do I restore Pro on a new device?</summary><div class="a"><p>Open Settings in Lumavu, choose Lumavu Pro at the top, then Restore purchases. Make sure you're signed in with the same Apple Account you bought it with.</p></div></details>
+  <details><summary>How do I cancel my subscription?</summary><div class="a"><p>Subscriptions are managed by Apple. On iPhone or iPad, open Settings, tap your name, then Subscriptions. On a Mac, open the App Store, click your name, then Account Settings. Cancel at least 24 hours before the renewal date.</p></div></details>
+  <details><summary>Can my family use Pro?</summary><div class="a"><p>Yes. All the Pro plans work with Family Sharing.</p></div></details>
+  <details><summary>How do I get a refund?</summary><div class="a"><p>Apple handles refunds for App Store purchases. You can ask for one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p></div></details>
+</div>
+
+<h2 id="contact">Contact us</h2>
+<p>If something isn't working, tell us which device you're on and what you tried. The logs screen in Lumavu's settings can help us track it down, and it's up to you whether you share it.</p>
+<div class="contact"><code id="addr">hello@thinkersandbuilders.co.uk</code><button type="button" id="copy">Copy</button></div>
+
+</article></div></main>
+<footer><div class="wrap"><a href="index.html">Lumavu</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><span class="r">Made by <a href="https://thinkersandbuilders.co.uk" target="_blank" rel="noopener">Thinkers &amp; Builders</a></span></div></footer>
+<script>
+(function(){var b=document.getElementById('copy'),a=document.getElementById('addr');if(!b||!a)return;
+b.addEventListener('click',function(){var t=a.textContent;var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800)};
+var sel=function(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel)}else sel()})})();
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumavu Privacy</title>
+<meta name="description" content="Privacy policy for Lumavu, the IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV.">
+<link rel="canonical" href="https://lumavu.app/privacy">
+<meta name="theme-color" content="#07060d">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/red-hat-text-400.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Red Hat Display";src:url(assets/fonts/red-hat-display.woff2) format("woff2");font-weight:300 900;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-400.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-600.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-600.woff2) format("woff2");font-weight:600;font-display:swap}</style>
+<style>
+/* Reading pages: the same night sky, turned down so the words come first. Dark first, with a light reading mode. */
+:root {
+  color-scheme: dark;
+  --bg: #07060d; --panel: #110e1c; --text: #f4f2fb; --muted: rgba(236,232,255,.7); --faint: rgba(236,232,255,.46);
+  --line: rgba(236,232,255,.12); --accent: #a78bff; --glow: rgba(110,70,255,.32); --mark: url(#bg-g);
+  --display: "Red Hat Display", -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --sans: "Red Hat Text", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --brand: "Red Hat Display", "Red Hat Text", -apple-system, system-ui, sans-serif;
+  --mono: "Red Hat Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+}
+:root[data-theme="light"] { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.glow { position: fixed; inset: 0 0 auto; height: 70vh; z-index: -1; pointer-events: none; background: radial-gradient(60% 70% at 75% 0%, var(--glow), transparent 70%), radial-gradient(40% 50% at 10% 10%, rgba(255,90,54,.08), transparent 70%); }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+header.bar .wrap { height: 64px; display: flex; align-items: center; gap: 20px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font: 700 1.2rem/1 var(--brand); letter-spacing: -.02em; }
+.brand svg { width: 24px; height: 24px; filter: drop-shadow(0 0 8px rgba(155,128,255,.45)); }
+header.bar nav { margin-left: auto; display: flex; gap: 22px; font-size: .94rem; }
+header.bar nav a { color: var(--muted); text-decoration: none; }
+header.bar nav a[aria-current] { color: var(--text); }
+@media (max-width: 520px) { header.bar nav { gap: 14px; font-size: .88rem; } }
+main { padding-block: clamp(48px, 8vw, 96px) 80px; }
+.doc { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: clamp(28px, 6vw, 80px); align-items: start; }
+@media (max-width: 820px) { .doc { grid-template-columns: minmax(0, 1fr); } .toc { display: none; } }
+.toc { position: sticky; top: 96px; display: grid; gap: 8px; font-size: .9rem; border-left: 1px solid var(--line); padding-left: 16px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--text); }
+.eyebrow { font: 500 .74rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 600 clamp(2.3rem, 5.6vw, 3.6rem)/1.02 var(--display); letter-spacing: -.034em; margin: 14px 0 18px; text-wrap: balance; }
+h2 { font: 600 1.45rem/1.25 var(--display); letter-spacing: -.02em; margin: 56px 0 12px; text-wrap: balance; scroll-margin-top: 90px; }
+h3 { font: 600 1.06rem/1.4 var(--sans); margin: 28px 0 6px; }
+article p, article li { color: var(--muted); max-width: 40em; }
+article p strong, article li strong { color: var(--text); font-weight: 600; }
+article ul { padding-left: 1.2em; }
+article li { margin-bottom: 6px; }
+.updated { color: var(--faint); font-size: .92rem; }
+.summary { margin-top: 28px; padding: 22px 24px; border-radius: 16px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.summary p { margin: 0; color: var(--text); }
+.summary ul { margin: 10px 0 0; }
+.qa { border-top: 1px solid var(--line); margin-top: 18px; }
+.qa details { border-bottom: 1px solid var(--line); }
+.qa summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 500; color: var(--text); }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font: 300 1.5rem/1 var(--sans); color: var(--muted); transition: transform .25s; }
+.qa details[open] summary::after { transform: rotate(45deg); }
+.qa .a { padding: 0 0 18px; }
+.qa .a p { margin: 0 0 10px; }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 14px; margin-top: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 14px; display: grid; place-items: center; font: 600 .82rem/1 var(--mono); color: var(--text); box-shadow: 0 0 0 1px var(--line) inset; margin-top: 2px; }
+.contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 16px 18px; border-radius: 14px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.contact code { font: 500 1rem/1.4 var(--mono); color: var(--text); user-select: all; word-break: break-all; }
+.contact button { margin-left: auto; border: 0; cursor: pointer; height: 36px; padding: 0 14px; border-radius: 18px; font: 600 .88rem/1 var(--sans); background: var(--text); color: var(--bg); }
+footer { border-top: 1px solid var(--line); padding-block: 32px calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--faint); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer a { color: var(--muted); text-decoration: none; }
+footer .r { margin-left: auto; }
+
+@media (max-width: 820px) { .toc { display: none; } }
+
+.brand svg path { fill: var(--mark); }
+
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="bg-g" x1=".15" y1=".05" x2=".85" y2="1"><stop offset="0" stop-color="#fdfcff"/><stop offset=".5" stop-color="#e9e3fc"/><stop offset="1" stop-color="#b9a9f0"/></linearGradient></defs><path d="M36.17 18.92 L78.63 43.08 Q90.8 50 78.63 56.92 L36.17 81.08 Q24 88 24 74 L24 26 Q24 12 36.17 18.92 Z" fill="url(#bg-g)" stroke="#8f74e8" stroke-opacity=".35"/></svg>Lumavu</a><nav aria-label="Pages"><a href="support.html">Support</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+<main><div class="wrap doc"><nav class="toc" aria-label="On this page"><a href="#who">Who we are</a><a href="#app">The app</a><a href="#site">This website</a><a href="#rights">Your rights</a><a href="#children">Children</a><a href="#changes">Changes</a></nav>
+<article><h1>Privacy policy</h1>
+
+<p class="updated">Last updated 2 November 2026</p>
+<div class="summary">
+  <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you. There are no accounts, no ads and no analytics. It connects to Apple and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud, your playlists and lists are kept in your own iCloud account, which we can't see. This website keeps one thing: your email address, if you join the waitlist, so we can tell you when Lumavu comes out.</p>
+</div>
+
+<h2 id="who">Who we are</h2>
+<p>Lumavu is made by Thinkers &amp; Builders ("we", "us"). If you have a question about this policy or your data, email <a href="mailto:hello@thinkersandbuilders.co.uk">hello@thinkersandbuilders.co.uk</a>.</p>
+
+<h2 id="app">The Lumavu app</h2>
+<h3>Playlists, accounts and servers you add</h3>
+<p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. Passwords are kept in your device's Keychain. Lumavu connects straight from your device to those servers to fetch channels, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
+<h3>Free sample channels</h3>
+<p>If you choose to load the sample channels or the free news channels, Lumavu downloads public lists and guides from the community projects that publish them. Those services see an ordinary web request from your device. Nothing else is sent.</p>
+<h3>Live subtitles and translation</h3>
+<p>Live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
+<h3>iCloud sync</h3>
+<p>Lumavu can keep your playlists (with their logins), favourites, lists, watch progress, hidden and locked categories, extra guides and settings the same on every iPhone, iPad, Mac and Apple TV signed in to your iCloud account. It's on unless you turn it off in Lumavu's settings, under iCloud. This uses Apple's iCloud storage in your own account. Apple stores it under your Apple Account, and we can't see it or get at it. Downloads, recordings and playlists imported from a file aren't synced.</p>
+<h3>What stays on your device</h3>
+<ul>
+  <li>Recordings, and downloaded films and episodes.</li>
+  <li>Playlists imported from a file.</li>
+  <li>Everything else listed under iCloud sync, if you've turned sync off.</li>
+  <li>The app's logs. They stay on your device unless you choose to share them with us.</li>
+  <li>Backups, which are saved as files wherever you choose.</li>
+</ul>
+<h3>Purchases</h3>
+<p>Lumavu Pro is sold by Apple through the App Store. Apple handles payment and never shares your payment details with us. The app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
+<h3>Crash reports</h3>
+<p>If you've chosen to share analytics with app developers in your device's settings, Apple may send us crash reports and usage figures that don't identify you. You can turn this off in Settings, under Privacy &amp; Security, Analytics &amp; Improvements.</p>
+
+<h2 id="site">This website</h2>
+<h3>The waitlist</h3>
+<p>If you join the waitlist, we store your email address and the date you joined. We use it for one thing: to email you when Lumavu is available on the App Store. We don't share it with anyone or use it for marketing. Once we've sent that email, we delete the list. We rely on your consent to keep it. You can withdraw it at any time: email us and we'll take you off.</p>
+<h3>Hosting</h3>
+<p>The site is hosted by Cloudflare, which processes technical information such as your IP address to deliver the pages and protect them from abuse. The waitlist is stored with Cloudflare too. The site sets no cookies, runs no analytics and loads no third-party trackers. Its fonts are served from the site itself.</p>
+
+<h2 id="rights">Your rights</h2>
+<p>Under UK data protection law you can ask us for a copy of the personal data we hold about you, ask us to correct it, or ask us to delete it. For the waitlist that's your email address and nothing more. Email <a href="mailto:hello@thinkersandbuilders.co.uk">hello@thinkersandbuilders.co.uk</a> and we'll reply within a month. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+
+<h2 id="children">Children</h2>
+<p>Lumavu doesn't collect personal data from anyone, including children. Parents can lock categories behind a PIN in the app's settings.</p>
+
+<h2 id="changes">Changes to this policy</h2>
+<p>If we change how Lumavu or this site handles data, we'll update this page and the date at the top before the change takes effect.</p>
+
+</article></div></main>
+<footer><div class="wrap"><a href="index.html">Lumavu</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><span class="r">Made by <a href="https://thinkersandbuilders.co.uk" target="_blank" rel="noopener">Thinkers &amp; Builders</a></span></div></footer>
+<script>
+(function(){var b=document.getElementById('copy'),a=document.getElementById('addr');if(!b||!a)return;
+b.addEventListener('click',function(){var t=a.textContent;var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800)};
+var sel=function(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel)}else sel()})})();
+</script>
+</body>
+</html>

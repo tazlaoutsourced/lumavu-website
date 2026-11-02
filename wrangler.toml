@@ -1,0 +1,11 @@
+# Cloudflare Pages settings for the Lumavu website. The Pages project is
+# connected to this repo, so a push to main goes live; this file is where
+# its settings live, and the dashboard can't override them.
+name = "lumavu-website"
+pages_build_output_dir = "public"
+compatibility_date = "2025-09-01"
+
+# The waitlist: one entry per email address, read by functions/api/waitlist.js.
+[[kv_namespaces]]
+binding = "WAITLIST"
+id = "0dc929899adf490c9f10660a4731d11d"

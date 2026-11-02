@@ -1,0 +1,12 @@
+# Originals, old takes and transfer bundles stay on the drive, out of git
+_media/
+# Build caches and the preview copy
+.seq/
+.media-sources.json
+.preview/
+# Wrangler's local cache
+.wrangler/
+node_modules/
+.DS_Store
+._*
+__pycache__/

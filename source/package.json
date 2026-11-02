@@ -1,0 +1,20 @@
+{
+  "name": "lumavu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/red-hat-display": "^5.3.0",
+    "@fontsource-variable/schibsted-grotesk": "^5.3.0",
+    "@fontsource/red-hat-mono": "^5.3.0",
+    "@fontsource/red-hat-text": "^5.3.0"
+  }
+}

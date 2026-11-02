@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumavu Terms</title>
+<meta name="description" content="Terms of use for Lumavu, the IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV.">
+<link rel="canonical" href="https://lumavu.app/terms">
+<meta name="theme-color" content="#07060d">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" href="assets/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/red-hat-text-400.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Red Hat Display";src:url(assets/fonts/red-hat-display.woff2) format("woff2");font-weight:300 900;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-400.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-600.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-600.woff2) format("woff2");font-weight:600;font-display:swap}</style>
+<style>
+/* Reading pages: the same night sky, turned down so the words come first. Dark first, with a light reading mode. */
+:root {
+  color-scheme: dark;
+  --bg: #07060d; --panel: #110e1c; --text: #f4f2fb; --muted: rgba(236,232,255,.7); --faint: rgba(236,232,255,.46);
+  --line: rgba(236,232,255,.12); --accent: #a78bff; --glow: rgba(110,70,255,.32); --mark: url(#bg-g);
+  --display: "Red Hat Display", -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --sans: "Red Hat Text", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --brand: "Red Hat Display", "Red Hat Text", -apple-system, system-ui, sans-serif;
+  --mono: "Red Hat Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+}
+:root[data-theme="light"] { color-scheme: light; --bg: #f6f4fb; --panel: #ffffff; --text: #17132a; --muted: rgba(23,19,42,.72); --faint: rgba(23,19,42,.5); --line: rgba(23,19,42,.12); --accent: #5b3bd6; --glow: rgba(110,70,255,.14); --mark: #5b3bd6; }
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.glow { position: fixed; inset: 0 0 auto; height: 70vh; z-index: -1; pointer-events: none; background: radial-gradient(60% 70% at 75% 0%, var(--glow), transparent 70%), radial-gradient(40% 50% at 10% 10%, rgba(255,90,54,.08), transparent 70%); }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+header.bar .wrap { height: 64px; display: flex; align-items: center; gap: 20px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font: 700 1.2rem/1 var(--brand); letter-spacing: -.02em; }
+.brand svg { width: 24px; height: 24px; filter: drop-shadow(0 0 8px rgba(155,128,255,.45)); }
+header.bar nav { margin-left: auto; display: flex; gap: 22px; font-size: .94rem; }
+header.bar nav a { color: var(--muted); text-decoration: none; }
+header.bar nav a[aria-current] { color: var(--text); }
+@media (max-width: 520px) { header.bar nav { gap: 14px; font-size: .88rem; } }
+main { padding-block: clamp(48px, 8vw, 96px) 80px; }
+.doc { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: clamp(28px, 6vw, 80px); align-items: start; }
+@media (max-width: 820px) { .doc { grid-template-columns: minmax(0, 1fr); } .toc { display: none; } }
+.toc { position: sticky; top: 96px; display: grid; gap: 8px; font-size: .9rem; border-left: 1px solid var(--line); padding-left: 16px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--text); }
+.eyebrow { font: 500 .74rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 600 clamp(2.3rem, 5.6vw, 3.6rem)/1.02 var(--display); letter-spacing: -.034em; margin: 14px 0 18px; text-wrap: balance; }
+h2 { font: 600 1.45rem/1.25 var(--display); letter-spacing: -.02em; margin: 56px 0 12px; text-wrap: balance; scroll-margin-top: 90px; }
+h3 { font: 600 1.06rem/1.4 var(--sans); margin: 28px 0 6px; }
+article p, article li { color: var(--muted); max-width: 40em; }
+article p strong, article li strong { color: var(--text); font-weight: 600; }
+article ul { padding-left: 1.2em; }
+article li { margin-bottom: 6px; }
+.updated { color: var(--faint); font-size: .92rem; }
+.summary { margin-top: 28px; padding: 22px 24px; border-radius: 16px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.summary p { margin: 0; color: var(--text); }
+.summary ul { margin: 10px 0 0; }
+.qa { border-top: 1px solid var(--line); margin-top: 18px; }
+.qa details { border-bottom: 1px solid var(--line); }
+.qa summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 500; color: var(--text); }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font: 300 1.5rem/1 var(--sans); color: var(--muted); transition: transform .25s; }
+.qa details[open] summary::after { transform: rotate(45deg); }
+.qa .a { padding: 0 0 18px; }
+.qa .a p { margin: 0 0 10px; }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 14px; margin-top: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 14px; display: grid; place-items: center; font: 600 .82rem/1 var(--mono); color: var(--text); box-shadow: 0 0 0 1px var(--line) inset; margin-top: 2px; }
+.contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 16px 18px; border-radius: 14px; background: var(--panel); box-shadow: 0 0 0 1px var(--line) inset; }
+.contact code { font: 500 1rem/1.4 var(--mono); color: var(--text); user-select: all; word-break: break-all; }
+.contact button { margin-left: auto; border: 0; cursor: pointer; height: 36px; padding: 0 14px; border-radius: 18px; font: 600 .88rem/1 var(--sans); background: var(--text); color: var(--bg); }
+footer { border-top: 1px solid var(--line); padding-block: 32px calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--faint); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer a { color: var(--muted); text-decoration: none; }
+footer .r { margin-left: auto; }
+
+@media (max-width: 820px) { .toc { display: none; } }
+
+.brand svg path { fill: var(--mark); }
+
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="bg-g" x1=".15" y1=".05" x2=".85" y2="1"><stop offset="0" stop-color="#fdfcff"/><stop offset=".5" stop-color="#e9e3fc"/><stop offset="1" stop-color="#b9a9f0"/></linearGradient></defs><path d="M36.17 18.92 L78.63 43.08 Q90.8 50 78.63 56.92 L36.17 81.08 Q24 88 24 74 L24 26 Q24 12 36.17 18.92 Z" fill="url(#bg-g)" stroke="#8f74e8" stroke-opacity=".35"/></svg>Lumavu</a><nav aria-label="Pages"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html" aria-current="page">Terms</a></nav></div></header>
+<main><div class="wrap doc"><nav class="toc" aria-label="On this page"><a href="#agreement">These terms</a><a href="#content">What Lumavu is</a><a href="#pro">Lumavu Pro</a><a href="#use">Using it fairly</a><a href="#software">Open source</a><a href="#liability">If something goes wrong</a><a href="#changes">Changes and contact</a></nav>
+<article><h1>Terms of use</h1>
+
+<p class="updated">Last updated 2 November 2026</p>
+<div class="summary">
+  <p><strong>The short version.</strong> Lumavu is a video player. It doesn't come with any channels, films or series, so only add playlists and servers you have the right to watch. Lumavu Pro is a subscription or a one-off purchase through Apple, and you manage it in your Apple Account.</p>
+</div>
+
+<h2 id="agreement">These terms</h2>
+<p>These terms cover your use of the Lumavu app on iPhone, iPad, Mac and Apple TV, and of this website. Lumavu is made by Thinkers &amp; Builders ("we", "us"). They sit alongside Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement</a>, which also applies to apps from the App Store. If the two disagree, these terms apply to the extent the law and Apple allow.</p>
+
+<h2 id="content">What Lumavu is, and isn't</h2>
+<ul>
+  <li><strong>Lumavu is a player.</strong> It plays playlists, accounts, servers and guides that you add yourself.</li>
+  <li><strong>We don't provide content.</strong> We don't sell, host, list or recommend channels, films, series or playlists, and we have no connection with the people who do.</li>
+  <li><strong>You're responsible for what you add.</strong> Only add sources you're allowed to watch, and follow your provider's terms. Some providers don't allow recording or downloading, for example.</li>
+  <li><strong>We can't vouch for third-party streams.</strong> Their quality, availability and content are up to whoever runs them.</li>
+</ul>
+
+<h2 id="pro">Lumavu Pro</h2>
+<p>Lumavu is free to use with one playlist and one favourites list. Lumavu Pro adds Multiview, recordings, downloads, and as many playlists and lists as you like. Pro is available as:</p>
+<ul>
+  <li><strong>A monthly or yearly subscription.</strong> It renews automatically at the end of each period unless you turn off auto-renew at least 24 hours before the period ends. Payment is taken by Apple when you confirm the purchase and at each renewal.</li>
+  <li><strong>A free trial.</strong> The yearly plan includes 7 days free for new subscribers. Unless you cancel at least 24 hours before the trial ends, it becomes a paid yearly subscription.</li>
+  <li><strong>A lifetime purchase.</strong> One payment, with no renewal.</li>
+</ul>
+<p>One purchase works on all your Apple devices signed in to the same Apple Account, and with Family Sharing. You can manage or cancel a subscription in your Apple Account settings. Refunds are handled by Apple under its own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
+
+<h2 id="use">Using Lumavu fairly</h2>
+<p>Please don't use Lumavu to break the law, infringe anyone's rights, try to get around the limits of a provider's account, or take the app apart to make a competing product, except where the law allows it.</p>
+
+<h2 id="software">Open-source software</h2>
+<p>Lumavu includes open-source software, used under its own licences. Nothing in these terms limits the rights those licences give you.</p>
+
+<h2 id="liability">If something goes wrong</h2>
+<p>We want Lumavu to be reliable, but it's provided as it is, and we can't promise it will work with every provider or stream. Nothing in these terms limits your rights as a consumer under the law, or our liability for death or personal injury caused by our negligence, or for fraud. Otherwise, to the extent the law allows, we aren't liable for losses caused by third-party content or services, or for losses we couldn't reasonably have foreseen.</p>
+
+<h2 id="changes">Changes and contact</h2>
+<p>We may update these terms when the app changes. We'll update the date at the top and, for significant changes, tell you in the app. These terms are governed by the law of England and Wales. If you have a question about them, email <a href="mailto:hello@thinkersandbuilders.co.uk">hello@thinkersandbuilders.co.uk</a>.</p>
+
+</article></div></main>
+<footer><div class="wrap"><a href="index.html">Lumavu</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><span class="r">Made by <a href="https://thinkersandbuilders.co.uk" target="_blank" rel="noopener">Thinkers &amp; Builders</a></span></div></footer>
+<script>
+(function(){var b=document.getElementById('copy'),a=document.getElementById('addr');if(!b||!a)return;
+b.addEventListener('click',function(){var t=a.textContent;var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800)};
+var sel=function(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel)}else sel()})})();
+</script>
+</body>
+</html>
