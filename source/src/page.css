@@ -22,7 +22,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 header.bar .wrap { height: 64px; display: flex; align-items: center; gap: 20px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font: 700 1.2rem/1 var(--brand); letter-spacing: -.02em; }
+.brand { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; color: var(--text); font: 700 1.2rem/1 var(--brand); letter-spacing: -.02em; }
 .brand svg { width: 24px; height: 24px; filter: drop-shadow(0 0 8px rgba(155,128,255,.45)); }
 header.bar nav { margin-left: auto; display: flex; gap: 22px; font-size: .94rem; }
 header.bar nav a { color: var(--muted); text-decoration: none; }
@@ -68,3 +68,5 @@ footer .r { margin-left: auto; }
 @media (max-width: 820px) { .toc { display: none; } }
 
 .brand svg path { fill: var(--mark); }
+.brand svg.wm { width: 80.6px; height: 16.6px; filter: none; }
+.brand .wm path { fill: currentColor; }
