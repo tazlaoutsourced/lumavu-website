@@ -1,9 +1,10 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
 UPDATED = "2 November 2026"
+PRIVACY_UPDATED = "7 November 2026"
 CONTACT = "hello@thinkersandbuilders.co.uk"
 
 PRIVACY = f"""
-<p class="updated">Last updated {UPDATED}</p>
+<p class="updated">Last updated {PRIVACY_UPDATED}</p>
 <div class="summary">
   <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you. There are no accounts, no ads and no analytics. It connects to Apple and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud, your playlists and lists are kept in your own iCloud account, which we can't see. This website keeps one thing: your email address, if you join the waitlist, so we can tell you when Lumavu comes out.</p>
 </div>
@@ -14,8 +15,8 @@ PRIVACY = f"""
 <h2 id="app">The Lumavu app</h2>
 <h3>Playlists, accounts and servers you add</h3>
 <p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. Passwords are kept in your device's Keychain. Lumavu connects straight from your device to those servers to fetch channels, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
-<h3>Free sample channels</h3>
-<p>If you choose to load the sample channels or the free news channels, Lumavu downloads public lists and guides from the community projects that publish them. Those services see an ordinary web request from your device. Nothing else is sent.</p>
+<h3>Sample movies and channels</h3>
+<p>If you choose to try the sample movies and series, Lumavu plays them straight from the organisations that publish them, such as the Blender Foundation, Apple and broadcasters that stream for free. Those services see an ordinary web request from your device. Nothing else is sent.</p>
 <h3>Live subtitles and translation</h3>
 <p>Live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
 <h3>iCloud sync</h3>
@@ -29,7 +30,7 @@ PRIVACY = f"""
   <li>Backups, which are saved as files wherever you choose.</li>
 </ul>
 <h3>Purchases</h3>
-<p>Lumavu Pro is sold by Apple through the App Store. Apple handles payment and never shares your payment details with us. The app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
+<p>Lumavu is free, with nothing to buy in this version. If Lumavu Pro is added later, Apple will sell it through the App Store. Apple handles payment and never shares your payment details with us, and the app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
 <h3>Crash reports</h3>
 <p>If you've chosen to share analytics with app developers in your device's settings, Apple may send us crash reports and usage figures that don't identify you. You can turn this off in Settings, under Privacy &amp; Security, Analytics &amp; Improvements.</p>
 
@@ -96,7 +97,7 @@ SUPPORT = f"""
   <li><span><strong>Add a playlist.</strong> Open Lumavu and choose Add playlist. Pick Xtream Codes, M3U (a link or a file), Jellyfin or Emby, and fill in the details your provider gave you.</span></li>
   <li><span><strong>Give it a name, a colour and an icon.</strong> They show in the sidebar, which helps once you have more than one.</span></li>
   <li><span><strong>Add a guide if you need one.</strong> Xtream accounts usually bring their own. For M3U playlists, add the XMLTV link your provider gives you, in the playlist's settings.</span></li>
-  <li><span><strong>No playlist yet?</strong> Choose <em>Try sample movies and series</em> or <em>Add free news channels</em> on the first screen to have a look around.</span></li>
+  <li><span><strong>No playlist yet?</strong> Choose <em>Try sample movies and series</em> on the first screen to have a look around.</span></li>
 </ol>
 
 <h2 id="faq">Common questions</h2>
