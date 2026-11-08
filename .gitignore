@@ -10,3 +10,8 @@ node_modules
 .DS_Store
 ._*
 __pycache__/
+# Local secrets for `wrangler pages dev` never go to GitHub
+.dev.vars
+.dev.vars.*
+.env
+.env.*
