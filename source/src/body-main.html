@@ -604,7 +604,7 @@
       <h2 class="h2">Coming soon to the App Store</h2>
       <p class="lead" style="margin-inline:auto">We're finishing Lumavu for iPhone, iPhone Duo, iPad, Mac and Apple&nbsp;TV. Leave your email and we'll tell you the day it's out</p>
       <div class="final-form">
-        <form class="join" data-join novalidate>
+        <form class="join" data-join method="post" action="/api/waitlist" novalidate>
           <label class="sr" for="email-final">Email address</label>
           <input id="email-final" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Your email address" required>
           <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">

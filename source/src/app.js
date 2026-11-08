@@ -529,7 +529,7 @@ void main(){
   new ResizeObserver(drawTimeline).observe(tl);
 
   /* ---------- Waitlist ---------- */
-  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const EMAIL = /^[^\s@]{1,64}@[^\s@.]+(?:\.[^\s@.]+)+$/;
   $$("form[data-join]").forEach((f) => {
     const note = f.parentElement.querySelector(".join-note");
     const base = note.textContent;
@@ -542,9 +542,9 @@ void main(){
       if (window.LUMAVU_PREVIEW) { say("This is a preview, so nothing was saved. The waitlist starts working once the site is live", ""); return; }
       const btn = f.querySelector("button"); btn.disabled = true; const label = btn.textContent; btn.textContent = "Adding you…";
       try {
-        const r = await fetch("/api/waitlist", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email }) });
+        const r = await fetch("/api/waitlist", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email, company: f.company.value }) });
         const j = await r.json().catch(() => ({}));
-        if (r.ok && j.ok) { say(j.already ? "You're already on the list. We'll be in touch on the day it's out" : "You're on the list. We'll send one email, on the day it's out", "ok"); f.reset(); }
+        if (r.ok && j.ok) { say("You're on the list. We'll send one email, on the day it's out", "ok"); f.reset(); }
         else say(j.error || "That didn't go through. Try again in a moment", "err");
       } catch (err) { say("That didn't go through. Check your connection and try again", "err"); }
       btn.disabled = false; btn.textContent = label;

@@ -40,6 +40,36 @@ SEQUENCE = {"salt-road": ["salt-road-walk", "salt-road-aerial"]}
 SEQ_FADE = 0  # seconds of dissolve between shots; 0 for straight cuts
 
 
+
+def headers_file(pub):
+    """Cloudflare Pages _headers, with a Content-Security-Policy that allows only this site's own files and the
+    exact inline scripts in the built pages (by hash, so the hashes follow every rebuild). JSON-LD isn't executed,
+    so it needs no hash. Inline styles stay allowed: the pages use style attributes and inline <style> blocks."""
+    import base64, hashlib
+    hashes = []
+    for page in sorted(pub.glob("*.html")):
+        for attrs, body in re.findall(r"<script([^>]*)>(.*?)</script>", page.read_text(), re.S):
+            if "src=" in attrs or "ld+json" in attrs:
+                continue
+            h = "'sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode() + "'"
+            if h not in hashes:
+                hashes.append(h)
+    csp = ("default-src 'none'; script-src 'self' " + " ".join(hashes) + "; style-src 'self' 'unsafe-inline'; "
+           "img-src 'self'; media-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; "
+           "base-uri 'none'; object-src 'none'; frame-ancestors 'none'; manifest-src 'self'")
+    return f"""/*
+  Content-Security-Policy: {csp}
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=()
+
+/assets/*
+  Cache-Control: public, max-age=604800
+"""
+
 def probe_duration(path):
     return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
                                 capture_output=True, text=True, check=True).stdout.strip())
@@ -249,15 +279,7 @@ def main():
         (PUB / fname).write_text(build_page(fname, title, eyebrow, h1, toc, content, SELF_FONTS))
         (ART / fname).write_text(build_page(fname, title, eyebrow, h1, toc, content, GOOGLE_FONTS))
     # Cloudflare extras
-    (PUB / "_headers").write_text("""/*
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: DENY
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-
-/assets/*
-  Cache-Control: public, max-age=604800
-""")
+    (PUB / "_headers").write_text(headers_file(PUB))
     (PUB / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: https://lumavu.app/sitemap.xml\n")
     urls = "".join(f"  <url><loc>https://lumavu.app/{p}</loc></url>\n" for p in ("", "support", "privacy", "terms"))
     (PUB / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
