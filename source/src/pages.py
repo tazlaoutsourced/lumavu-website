@@ -1,5 +1,5 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
-UPDATED = "2 November 2026"
+UPDATED = "9 November 2026"
 PRIVACY_UPDATED = "9 November 2026"
 CONTACT = "hello@thinkersandbuilders.co.uk"
 
@@ -20,17 +20,17 @@ PRIVACY = f"""
 <h3>Live subtitles and translation</h3>
 <p>Live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
 <h3>iCloud sync</h3>
-<p>Lumavu can keep your playlists (with their logins), favourites, lists, watch progress, hidden and locked categories, extra guides and settings the same on every iPhone, iPad, Mac and Apple TV signed in to your iCloud account. It's on unless you turn it off in Lumavu's settings, under iCloud. This uses Apple's iCloud storage in your own account. Apple stores it under your Apple Account, and we can't see it or get at it. Downloads, recordings and playlists imported from a file aren't synced.</p>
+<p>Lumavu can keep your playlists (with their logins), favourites, lists, watch progress, hidden and locked categories, extra guides and settings the same on every iPhone, iPad, Mac and Apple TV signed in to your iCloud account. Sync is part of Lumavu Pro. Once you have Pro, it's on unless you turn it off in Lumavu's settings, under iCloud. This uses Apple's iCloud storage in your own account. Apple stores it under your Apple Account, and we can't see it or get at it. Downloads, recordings and playlists imported from a file aren't synced.</p>
 <h3>What stays on your device</h3>
 <ul>
   <li>Recordings, and downloaded films and episodes.</li>
   <li>Playlists imported from a file.</li>
-  <li>Everything else listed under iCloud sync, if you've turned sync off.</li>
+  <li>Everything else listed under iCloud sync, if you don't have Pro or you've turned sync off.</li>
   <li>The app's logs. They stay on your device unless you choose to share them with us.</li>
   <li>Backups, which are saved as files wherever you choose.</li>
 </ul>
 <h3>Purchases</h3>
-<p>Lumavu is free, with nothing to buy in this version. If Lumavu Pro is added later, Apple will sell it through the App Store. Apple handles payment and never shares your payment details with us, and the app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
+<p>Lumavu Pro is sold by Apple through the App Store. Apple handles payment and never shares your payment details with us, and the app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
 <h3>Crash reports</h3>
 <p>If you've chosen to share analytics with app developers in your device's settings, Apple may send us crash reports and usage figures that don't identify you. You can turn this off in Settings, under Privacy &amp; Security, Analytics &amp; Improvements.</p>
 
@@ -68,13 +68,13 @@ TERMS = f"""
 </ul>
 
 <h2 id="pro">Lumavu Pro</h2>
-<p>Lumavu is free to use with one playlist and one favourites list. Lumavu Pro adds Multiview, recordings, downloads, and as many playlists and lists as you like. Pro is available as:</p>
+<p>Lumavu is free to use with one playlist on each device, one favourites list and the guide from yesterday to tomorrow. Lumavu Pro adds sync across your devices, the whole week's guide with reminders and extra guides, Multiview, recordings, downloads, and as many playlists and lists as you like. Pro is available as:</p>
 <ul>
   <li><strong>A monthly or yearly subscription.</strong> It renews automatically at the end of each period unless you turn off auto-renew at least 24 hours before the period ends. Payment is taken by Apple when you confirm the purchase and at each renewal.</li>
   <li><strong>A free trial.</strong> The yearly plan includes 7 days free for new subscribers. Unless you cancel at least 24 hours before the trial ends, it becomes a paid yearly subscription.</li>
   <li><strong>A lifetime purchase.</strong> One payment, with no renewal.</li>
 </ul>
-<p>One purchase works on all your Apple devices signed in to the same Apple Account, and with Family Sharing. You can manage or cancel a subscription in your Apple Account settings. Refunds are handled by Apple under its own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
+<p>One purchase works on all your Apple devices signed in to the same Apple Account. Pro isn't shared through Family Sharing. You can manage or cancel a subscription in your Apple Account settings. Refunds are handled by Apple under its own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
 
 <h2 id="use">Using Lumavu fairly</h2>
 <p>Please don't use Lumavu to break the law, infringe anyone's rights, try to get around the limits of a provider's account, or take the app apart to make a competing product, except where the law allows it.</p>
@@ -109,7 +109,7 @@ SUPPORT = f"""
   <details><summary>Why can't I download this?</summary><div class="a"><p>Live channels can't be downloaded, and nor can links that only come as HLS (.m3u8). Downloads are part of Lumavu Pro, and on iPhone and iPad they wait for Wi‑Fi unless you allow mobile data in Settings, under Downloads. A download steps aside while you watch something from the same account, then carries on.</p></div></details>
   <details><summary>Does recording carry on when I close the app?</summary><div class="a"><p>No. Recordings run while Lumavu is open, on iPhone, iPad and Mac.</p></div></details>
   <details><summary>Can I hide categories I never watch?</summary><div class="a"><p>Yes. On any Live TV, Movies or Series page, open Choose categories. You can hide a whole language across Live TV, films and series in one tap, or a family of categories such as Sport, or single categories. You can also touch and hold a category to hide it.</p></div></details>
-  <details><summary>My playlists aren't showing on my other devices</summary><div class="a"><p>Check that iCloud sync is on in Lumavu's settings, under iCloud, on each device, and that they're all signed in to the same iCloud account. Playlists imported from a file stay on the device you imported them on, so if your provider gives you a link, add that instead.</p></div></details>
+  <details><summary>My playlists aren't showing on my other devices</summary><div class="a"><p>Sync is part of Lumavu Pro. Check that iCloud sync is on in Lumavu's settings, under iCloud, on each device, and that they're all signed in to the same iCloud account. Playlists imported from a file stay on the device you imported them on, so if your provider gives you a link, add that instead.</p></div></details>
   <details><summary>How does Lumavu look on iPhone Duo?</summary><div class="a"><p>With the phone closed, the outside screen shows the iPhone layout, with tabs along the bottom. Open it and the inside screen switches to the iPad layout, with your playlists in a sidebar. Anything that's playing carries on as you open or close it. It's the same app and the same purchase as on iPhone.</p></div></details>
   <details><summary>Does it work with Jellyfin and Emby live TV?</summary><div class="a"><p>Not yet. Films and series from Jellyfin and Emby work today.</p></div></details>
   <details><summary>Is there Chromecast?</summary><div class="a"><p>Not at the moment. AirPlay works from iPhone, iPad and Mac, for streams that play in Apple's player.</p></div></details>
@@ -119,7 +119,8 @@ SUPPORT = f"""
 <div class="qa">
   <details><summary>How do I restore Pro on a new device?</summary><div class="a"><p>Open Settings in Lumavu, choose Lumavu Pro at the top, then Restore purchases. Make sure you're signed in with the same Apple Account you bought it with.</p></div></details>
   <details><summary>How do I cancel my subscription?</summary><div class="a"><p>Subscriptions are managed by Apple. On iPhone or iPad, open Settings, tap your name, then Subscriptions. On a Mac, open the App Store, click your name, then Account Settings. Cancel at least 24 hours before the renewal date.</p></div></details>
-  <details><summary>Can my family use Pro?</summary><div class="a"><p>Yes. All the Pro plans work with Family Sharing.</p></div></details>
+  <details><summary>Can my family use Pro?</summary><div class="a"><p>Pro isn't shared through Family Sharing. It works on every iPhone, iPad, Mac and Apple TV signed in to the Apple Account that bought it.</p></div></details>
+  <details><summary>What do I get for free?</summary><div class="a"><p>Live TV, films and series, catch-up, live subtitles, Picture in Picture and AirPlay, with one playlist on each device, one favourites list and the guide from yesterday to tomorrow. Pro adds sync across your devices, the whole week's guide with reminders and extra guides, Multiview, recordings, downloads, and as many playlists and lists as you like.</p></div></details>
   <details><summary>How do I get a refund?</summary><div class="a"><p>Apple handles refunds for App Store purchases. You can ask for one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p></div></details>
 </div>
 
