@@ -1,11 +1,10 @@
 # Lumavu website
 
-A single long page about the app, plus support, privacy and terms pages. Built for Cloudflare Pages, with a small function that keeps the waitlist.
+A single long page about the app, plus support, privacy and terms pages. Built for Cloudflare Pages.
 
 ## What's in this folder
 
 - `public/` is the site itself: `index.html` (the home page), `support.html`, `privacy.html`, `terms.html` and `assets/` (fonts, icons, the generated stills and loops).
-- `functions/api/waitlist.js` saves waitlist sign-ups to Cloudflare KV, one entry per email address.
 - `wrangler.toml` holds the Cloudflare Pages settings.
 - `_media/` (not in git) holds the originals described below.
 - `source/` holds the parts the pages are built from (`src/`) and `build.py`, which puts them together. Edit there, not in `public/`.
@@ -14,15 +13,15 @@ A single long page about the app, plus support, privacy and terms pages. Built f
 
 ## Putting it live
 
-This repo is connected to the `lumavu-website` project on Cloudflare Pages, which serves lumavu.app. A push to `main` goes live a minute or so later. A push to any other branch gets its own preview address on `lumavu-website.pages.dev` and leaves the live site alone. Pages runs no build: it serves `public/` as committed and turns `functions/` into the waitlist endpoint, with the settings in `wrangler.toml` (including the WAITLIST namespace).
+This repo is connected to the `lumavu-website` project on Cloudflare Pages, which serves lumavu.app. A push to `main` goes live a minute or so later. A push to any other branch gets its own preview address on `lumavu-website.pages.dev` and leaves the live site alone. Pages runs no build: it serves `public/` as committed, with the settings in `wrangler.toml`. Preview addresses sit behind Cloudflare Access, so only signed-in people can see them.
 
 So a change goes: edit `source/`, run `python3 source/build.py` to rebuild `public/`, commit both, push.
 
 The pages give `https://lumavu.app` as their address (the canonical links, the link-preview image and `sitemap.xml`).
 
-## Reading the waitlist
+## Reading the waitlist (closed 9 Nov 2026)
 
-`npx wrangler kv key list --namespace-id <the id> --remote` lists everyone. Each value holds the address and the date they joined. It's also visible in the dashboard under Storage & Databases, then KV, then WAITLIST. The privacy policy promises the list is used once, on launch day, and deleted afterwards.
+The sign-up form and its function were removed on 9 Nov 2026; the WAITLIST namespace keeps the people who joined before that. `npx wrangler kv key list --namespace-id <the id> --remote` lists everyone. Each value holds the address and the date they joined. It's also visible in the dashboard under Storage & Databases, then KV, then WAITLIST. The privacy policy promises the list is used once, on launch day, and deleted afterwards.
 
 ## Before launch
 

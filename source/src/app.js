@@ -528,30 +528,6 @@ void main(){
   drawTimeline();
   new ResizeObserver(drawTimeline).observe(tl);
 
-  /* ---------- Waitlist ---------- */
-  const EMAIL = /^[^\s@]{1,64}@[^\s@.]+(?:\.[^\s@.]+)+$/;
-  $$("form[data-join]").forEach((f) => {
-    const note = f.parentElement.querySelector(".join-note");
-    const base = note.textContent;
-    const say = (msg, cls) => { note.textContent = msg; note.className = `join-note ${cls || ""}`; };
-    f.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = f.email.value.trim();
-      if (!EMAIL.test(email)) { say("That email address doesn't look right. Check it and try again", "err"); f.email.focus(); return; }
-      if (f.company.value) { say("You're on the list. We'll send one email, on the day it's out", "ok"); return; }
-      if (window.LUMAVU_PREVIEW) { say("This is a preview, so nothing was saved. The waitlist starts working once the site is live", ""); return; }
-      const btn = f.querySelector("button"); btn.disabled = true; const label = btn.textContent; btn.textContent = "Adding you…";
-      try {
-        const r = await fetch("/api/waitlist", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email, company: f.company.value }) });
-        const j = await r.json().catch(() => ({}));
-        if (r.ok && j.ok) { say("You're on the list. We'll send one email, on the day it's out", "ok"); f.reset(); }
-        else say(j.error || "That didn't go through. Try again in a moment", "err");
-      } catch (err) { say("That didn't go through. Check your connection and try again", "err"); }
-      btn.disabled = false; btn.textContent = label;
-      setTimeout(() => { if (note.classList.contains("err")) say(base, ""); }, 9000);
-    });
-  });
-
   /* ---------- Menu (small screens) ---------- */
   const menu = $("#menu"), menuBtn = $("#menuBtn");
   const setMenu = (open) => {
@@ -639,7 +615,7 @@ void main(){
       tilt.style.setProperty("--px", `${(-ry * 0.35).toFixed(2)}%`); tilt.style.setProperty("--py", `${(rx * 0.35).toFixed(2)}%`);
       tilt.style.setProperty("--gx", `${gx.toFixed(1)}%`); tilt.style.setProperty("--gy", `${gy.toFixed(1)}%`);
     };
-    const zone = $("#waitlist");
+    const zone = $("#launch");
     zone.addEventListener("pointermove", (e) => {
       if (e.pointerType !== "mouse") return;
       const r = icon.getBoundingClientRect();
@@ -659,7 +635,7 @@ void main(){
   /* ---------- Quick switcher (⌘K), as in the app ---------- */
   const pal = $("#palette"), palInput = $("#palInput"), palList = $("#palList");
   const ITEMS = [
-    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Join the waitlist", "#waitlist"]]
+    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Coming soon", "#launch"]]
       .map(([t, h]) => ({ g: "On this page", t, h, icon: "i-list" })),
     ...CH.map(([code, name]) => ({ g: "Channels", t: name, code, h: "#live", sub: "Live" })),
     ...[["The Salt Road", "Film"], ["Orbit Nine", "Film"], ["Glass Harbour", "Film"], ["Paper Moons", "Film"], ["Kingdom of Glass", "Series"], ["The Long Season", "Series"]]

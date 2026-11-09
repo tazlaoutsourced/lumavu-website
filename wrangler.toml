@@ -5,7 +5,8 @@ name = "lumavu-website"
 pages_build_output_dir = "public"
 compatibility_date = "2025-09-01"
 
-# The waitlist: one entry per email address, read by functions/api/waitlist.js.
+# The waitlist (closed 9 Nov 2026): one entry per email address. Nothing on the site writes to it any more; it's
+# kept so the people who signed up can be emailed once at launch, after which the namespace can be deleted.
 [[kv_namespaces]]
 binding = "WAITLIST"
 id = "0dc929899adf490c9f10660a4731d11d"

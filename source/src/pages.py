@@ -1,12 +1,12 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
 UPDATED = "2 November 2026"
-PRIVACY_UPDATED = "7 November 2026"
+PRIVACY_UPDATED = "9 November 2026"
 CONTACT = "hello@thinkersandbuilders.co.uk"
 
 PRIVACY = f"""
 <p class="updated">Last updated {PRIVACY_UPDATED}</p>
 <div class="summary">
-  <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you. There are no accounts, no ads and no analytics. It connects to Apple and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud, your playlists and lists are kept in your own iCloud account, which we can't see. This website keeps one thing: your email address, if you join the waitlist, so we can tell you when Lumavu comes out.</p>
+  <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you. There are no accounts, no ads and no analytics. It connects to Apple and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud, your playlists and lists are kept in your own iCloud account, which we can't see. This website doesn't collect anything either. The waitlist it used to have is closed: if you joined it, we keep your email address only until we've told you Lumavu is out.</p>
 </div>
 
 <h2 id="who">Who we are</h2>
@@ -36,9 +36,9 @@ PRIVACY = f"""
 
 <h2 id="site">This website</h2>
 <h3>The waitlist</h3>
-<p>If you join the waitlist, we store your email address and the date you joined. We use it for one thing: to email you when Lumavu is available on the App Store. We don't share it with anyone or use it for marketing. Once we've sent that email, we delete the list. We rely on your consent to keep it. You can withdraw it at any time: email us and we'll take you off.</p>
+<p>The waitlist is closed, so the site no longer asks for an email address. If you joined it while it was open, we store your email address and the date you joined. We use it for one thing: to email you when Lumavu is available on the App Store. We don't share it with anyone or use it for marketing. Once we've sent that email, we delete the list. We rely on your consent to keep it. You can withdraw it at any time: email us and we'll take you off.</p>
 <h3>Hosting</h3>
-<p>The site is hosted by Cloudflare, which processes technical information such as your IP address to deliver the pages and protect them from abuse. The waitlist is stored with Cloudflare too. The site sets no cookies, runs no analytics and loads no third-party trackers. Its fonts are served from the site itself.</p>
+<p>The site is hosted by Cloudflare, which processes technical information such as your IP address to deliver the pages and protect them from abuse. The waitlist sign-ups are stored with Cloudflare too. The site sets no cookies, runs no analytics and loads no third-party trackers. Its fonts are served from the site itself.</p>
 
 <h2 id="rights">Your rights</h2>
 <p>Under UK data protection law you can ask us for a copy of the personal data we hold about you, ask us to correct it, or ask us to delete it. For the waitlist that's your email address and nothing more. Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll reply within a month. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>

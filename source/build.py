@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Builds the Lumavu website.
 
-  public/        the site Cloudflare Pages serves (fonts self-hosted, waitlist posts to /api/waitlist)
-  ../artifact/   the same pages for a claude.ai preview (Google Fonts, waitlist in preview mode)
+  public/        the site Cloudflare Pages serves (fonts self-hosted)
+  ../artifact/   the same pages for a claude.ai preview (Google Fonts)
 
 Media: drop 16:9 stills into media/raw/<key>.png (or .jpg) and loops into media/raw/<key>.mp4, then run again.
 """
