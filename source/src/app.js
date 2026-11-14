@@ -635,7 +635,7 @@ void main(){
   /* ---------- Quick switcher (⌘K), as in the app ---------- */
   const pal = $("#palette"), palInput = $("#palInput"), palList = $("#palList");
   const ITEMS = [
-    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Coming soon", "#launch"]]
+    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Get the app", "#launch"]]
       .map(([t, h]) => ({ g: "On this page", t, h, icon: "i-list" })),
     ...CH.map(([code, name]) => ({ g: "Channels", t: name, code, h: "#live", sub: "Live" })),
     ...[["The Salt Road", "Film"], ["Orbit Nine", "Film"], ["Glass Harbour", "Film"], ["Paper Moons", "Film"], ["Kingdom of Glass", "Series"], ["The Long Season", "Series"]]

@@ -94,6 +94,7 @@ SUPPORT = f"""
 
 <h2 id="start">Getting started</h2>
 <ol class="steps">
+  <li><span><strong>Get Lumavu.</strong> It's free on the <a href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">App Store</a> for iPhone, iPhone Duo and iPad. Apple TV follows very soon, and the Mac after that.</span></li>
   <li><span><strong>Add a playlist.</strong> Open Lumavu and choose Add playlist. Pick Xtream Codes, M3U (a link or a file), Jellyfin or Emby, and fill in the details your provider gave you.</span></li>
   <li><span><strong>Give it a name, a colour and an icon.</strong> They show in the sidebar, which helps once you have more than one.</span></li>
   <li><span><strong>Add a guide if you need one.</strong> Xtream accounts usually bring their own. For M3U playlists, add the XMLTV link your provider gives you, in the playlist's settings.</span></li>

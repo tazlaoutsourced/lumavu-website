@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lumavu</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="An IPTV player for the playlists and media servers you already have: live TV with a full guide, films, series, catch-up, multiview, and live subtitles that can translate as they go. Coming soon to iPhone, iPhone Duo, iPad, Mac and Apple TV.">
+<meta name="description" content="An IPTV player for the playlists and media servers you already have: live TV with a full guide, films, series, catch-up, multiview, and live subtitles that can translate as they go. On the App Store now for iPhone, iPhone Duo and iPad, with Apple TV and Mac to follow.">
 <meta name="theme-color" content="#07060d">
+<meta name="apple-itunes-app" content="app-id=6829302513">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lumavu. Television, in a better light.">
-<meta property="og:description" content="An IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV. Coming soon.">
+<meta property="og:description" content="An IPTV player for iPhone, iPhone Duo and iPad. Out now on the App Store.">
 <meta property="og:url" content="https://lumavu.app/">
 <meta property="og:image" content="https://lumavu.app/assets/img/og.jpg">
 <link rel="canonical" href="https://lumavu.app/">
@@ -19,7 +20,7 @@
 <link rel="preload" href="assets/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/red-hat-text-400.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Red Hat Display";src:url(assets/fonts/red-hat-display.woff2) format("woff2");font-weight:300 900;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-400.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Text";src:url(assets/fonts/red-hat-text-600.woff2) format("woff2");font-weight:600;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Red Hat Mono";src:url(assets/fonts/red-hat-mono-600.woff2) format("woff2");font-weight:600;font-display:swap}</style>
 <link rel="preload" as="image" href="assets/media/salt-road-loop.jpg">
 <noscript><style>.hero-device,.hero-cap{display:none}</style></noscript>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumavu","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 18, iPadOS 18, macOS 15, tvOS 18","description":"An IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV. Plays the Xtream Codes accounts, M3U playlists and Jellyfin or Emby servers you already have, with a full TV guide, catch-up, multiview and live translated subtitles.","publisher":{"@type":"Organization","name":"Thinkers & Builders","url":"https://thinkersandbuilders.co.uk"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumavu","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 18, iPadOS 18","url":"https://lumavu.app/","installUrl":"https://apps.apple.com/app/lumavu-iptv-player/id6829302513","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"An IPTV player for iPhone, iPhone Duo and iPad, with Apple TV and Mac to follow. Plays the Xtream Codes accounts, M3U playlists and Jellyfin or Emby servers you already have, with a full TV guide, catch-up, multiview and live translated subtitles.","publisher":{"@type":"Organization","name":"Thinkers & Builders","url":"https://thinkersandbuilders.co.uk"}}</script>
 <style>
 /* Lumavu. A long night-sky scroll: the icon's nebula is the stage, the app's own screens are the actors.
    Dark by design, one world, so the page sets every colour itself. */
@@ -180,7 +181,8 @@ h1, h2, h3 { margin: 0; font-weight: 300; text-wrap: balance; }
 .btn-light:hover { background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset, 0 12px 50px -8px rgba(155,128,255,.95); }
 .btn-ghost { background: rgba(236,232,255,.08); color: var(--text); box-shadow: 0 0 0 1px var(--line-2) inset; }
 .btn-ghost:hover { background: rgba(236,232,255,.14); }
-@media (max-width: 860px) { .nav { display: none; } }
+.top .btn { height: 38px; padding: 0 16px; font-size: .9rem; }
+@media (max-width: 860px) { .nav { display: none; } .top .top-cta { margin-left: auto; } }
 
 /* ---------- Hero ---------- */
 /* One still composition: the headline, then the app already in place below it. Nothing here runs on scroll. */
@@ -678,6 +680,7 @@ h1, h2, h3 { margin: 0; font-weight: 300; text-wrap: balance; }
 .final .wrap { display: grid; justify-items: center; gap: 26px; }
 .final-mark { width: clamp(96px, 14vw, 150px); aspect-ratio: 1; }
 .final .h2 { max-width: 12em; }
+.final .final-cta { height: 52px; padding: 0 28px; font-size: 1.02rem; margin-top: 4px; }
 
 /* ---------- Footer ---------- */
 .foot { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); background: rgba(7,6,13,.8); }
@@ -716,7 +719,8 @@ button, .tile, [role=button] { -webkit-tap-highlight-color: transparent; touch-a
 .menu-btn span:nth-child(2) { top: 23px; }
 .menu-btn[aria-expanded="true"] span:nth-child(1) { top: 19.5px; transform: rotate(45deg); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { top: 19.5px; transform: rotate(-45deg); }
-@media (max-width: 860px) { .menu-btn { display: block; margin-left: auto; } }
+@media (max-width: 860px) { .menu-btn { display: block; margin-left: -16px; } }
+@media (max-width: 359px) { .top .top-cta { display: none; } .menu-btn { margin-left: auto; } }
 .menu { position: fixed; z-index: 45; inset: 0; padding: calc(env(safe-area-inset-top, 0px) + 84px) max(24px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 28px) max(24px, env(safe-area-inset-left, 0px));
   display: flex; flex-direction: column; justify-content: space-between; gap: 32px; overflow-y: auto;
   background: rgba(8, 7, 15, .9); backdrop-filter: blur(26px) saturate(1.3); -webkit-backdrop-filter: blur(26px) saturate(1.3); }
@@ -728,6 +732,7 @@ button, .tile, [role=button] { -webkit-tap-highlight-color: transparent; touch-a
 .menu-foot { display: grid; gap: 16px; }
 .menu-foot p { margin: 0; color: var(--faint); font-size: .92rem; text-align: center; }
 .menu-foot p a { color: var(--muted); text-decoration: none; }
+.menu-foot .btn { width: 100%; height: 50px; }
 
 /* ambient light: each screen throws its own colours onto the sky around it */
 .framed { position: relative; isolation: isolate; }
@@ -823,6 +828,8 @@ button, .tile, [role=button] { -webkit-tap-highlight-color: transparent; touch-a
 .platforms li + li { border-left: 1px solid var(--line); }
 .platforms b { font: var(--wd-2) clamp(1.5rem, 3vw, 2.3rem)/1 var(--display); letter-spacing: var(--tr-2); }
 .platforms span { font-size: .84rem; color: var(--faint); }
+/* Apple TV and Mac aren't out yet: their names sit back until they are */
+.platforms li.soon b { opacity: .5; }
 @media (max-width: 640px) { .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); } .platforms li:nth-child(3) { border-left: 0; } .platforms li:nth-child(n+3) { border-top: 1px solid var(--line); } }
 
 /* segmented control labels */
@@ -1041,6 +1048,7 @@ main { overflow-x: clip; }
       <a href="#pro">Pricing</a>
       <a href="#faq">Questions</a>
     </nav>
+    <a class="btn btn-light top-cta" href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">Get the app</a>
     <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="menu"><span></span><span></span><b class="sr">Menu</b></button>
   </div>
 </header>
@@ -1057,6 +1065,7 @@ main { overflow-x: clip; }
     <a href="#faq">Questions</a>
   </nav>
   <div class="menu-foot">
+    <a class="btn btn-light" href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">Download on the App Store</a>
     <p><a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
   </div>
 </div>
@@ -1067,10 +1076,10 @@ main { overflow-x: clip; }
     <div class="hero-stage">
       <div class="hero-copy" id="heroCopy">
         <div class="wrap">
-          <span class="hero-eyebrow"><span class="long">Coming soon to iPhone, iPhone&nbsp;Duo, iPad, Mac and Apple&nbsp;TV</span><span class="short">Coming soon</span></span>
+          <span class="hero-eyebrow"><span class="long">Out now on iPhone, iPhone&nbsp;Duo and iPad, with Apple&nbsp;TV and Mac to follow</span><span class="short">Out now on the App Store</span></span>
           <h1 class="h1">Television, in a <span class="lit">better light</span></h1>
           <p class="lead long">Lumavu plays the playlists and media servers you already have. Live TV comes with a proper guide, and films come with their artwork. It all stays quick, even when your provider sends you 65,000&nbsp;of&nbsp;them</p>
-          <p class="lead short">An IPTV player for the playlists you already have, on iPhone, iPhone&nbsp;Duo, iPad, Mac and Apple&nbsp;TV</p>
+          <p class="lead short">An IPTV player for the playlists you already have, on iPhone, iPhone&nbsp;Duo and iPad</p>
         </div>
       </div>
 
@@ -1589,8 +1598,8 @@ main { overflow-x: clip; }
           <li><b>iPhone</b><span>iOS 18 or later</span></li>
           <li><b>iPhone Duo</b><span>Opens out to the iPad layout</span></li>
           <li><b>iPad</b><span>iPadOS 18 or later</span></li>
-          <li><b>Mac</b><span>macOS 15 or later</span></li>
-          <li><b>Apple TV</b><span>tvOS 18 or later</span></li>
+          <li class="soon"><b>Mac</b><span>Coming soon</span></li>
+          <li class="soon"><b>Apple TV</b><span>Coming soon</span></li>
         </ul>
       </div>
       <p class="fine price-note rv">These are UK prices, and the App Store will show yours in your own currency. Subscriptions renew until you cancel them in your Apple Account settings. <a href="terms.html">Terms of use</a></p>
@@ -1610,8 +1619,8 @@ main { overflow-x: clip; }
         <details><summary>Which video formats does it play?</summary><div class="a"><p>HLS and MP4 play in Apple's own player, with Picture in Picture and AirPlay. MKV, AVI, raw MPEG-TS, WebM, RTMP and the rest go to Lumavu's second engine. You don't have to choose: it picks one, and tries the other if a stream won't play</p></div></details>
         <details><summary>How many channels can I watch at once?</summary><div class="a"><p>Up to four in Multiview, which is part of Pro. Your provider decides how many streams an account can have at once, usually one or two. Lumavu knows the limit, and plays from another playlist when one account is full</p></div></details>
         <details><summary>Does it work on iPhone Duo?</summary><div class="a"><p>Yes, and it's the same purchase as on iPhone. Closed, the outside screen has the iPhone app. Open it and the inside screen switches to the iPad layout, with your playlists down the side</p></div></details>
-        <details><summary>Is there Chromecast?</summary><div class="a"><p>Not at launch. AirPlay works from iPhone, iPad and Mac, for streams that play in Apple's player</p></div></details>
-        <details><summary>When does it launch?</summary><div class="a"><p>Very soon, on the App Store. This page will have the link as soon as it's out</p></div></details>
+        <details><summary>Is there Chromecast?</summary><div class="a"><p>Not yet. AirPlay works from iPhone, iPad and Mac, for streams that play in Apple's player</p></div></details>
+        <details><summary>Where do I get it?</summary><div class="a"><p>On the <a href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">App Store</a>, for iPhone, iPhone Duo and iPad. Apple TV follows very soon, and the Mac after that</p></div></details>
       </div>
     </div>
   </section>
@@ -1623,8 +1632,9 @@ main { overflow-x: clip; }
         <div class="appicon-tilt" id="appTilt"><img src="assets/img/icon-512.png" alt="" width="512" height="512"><span class="sheen"></span></div>
         <span class="appicon-shadow"></span>
       </div>
-      <h2 class="h2">Coming soon to the App Store</h2>
-      <p class="lead" style="margin-inline:auto">We're finishing Lumavu for iPhone, iPhone Duo, iPad, Mac and Apple&nbsp;TV</p>
+      <h2 class="h2">Out now on the App Store</h2>
+      <p class="lead" style="margin-inline:auto">For iPhone, iPhone&nbsp;Duo and iPad, with Apple&nbsp;TV and Mac to follow</p>
+      <a class="btn btn-light final-cta" href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">Download on the App Store</a>
     </div>
   </section>
 </main>
@@ -1639,7 +1649,7 @@ main { overflow-x: clip; }
     </nav>
     <div class="legal">
       <p class="maker">Made by <a href="https://thinkersandbuilders.co.uk" target="_blank" rel="noopener">Thinkers &amp; Builders</a></p>
-      <p class="fine">Lumavu doesn't provide any TV channels, films or series. Every channel, title and picture on this page is invented for illustration. Apple, iPhone, iPhone Duo, iPad, Mac, Apple TV and AirPlay are trademarks of Apple Inc. © 2026 Thinkers &amp; Builders</p>
+      <p class="fine">Lumavu doesn't provide any TV channels, films or series. Every channel, title and picture on this page is invented for illustration. Apple, iPhone, iPhone Duo, iPad, Mac, Apple TV and AirPlay are trademarks of Apple Inc. App Store is a service mark of Apple Inc. © 2026 Thinkers &amp; Builders</p>
     </div>
   </div>
 </footer>
@@ -2292,7 +2302,7 @@ void main(){
   /* ---------- Quick switcher (⌘K), as in the app ---------- */
   const pal = $("#palette"), palInput = $("#palInput"), palList = $("#palList");
   const ITEMS = [
-    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Coming soon", "#launch"]]
+    ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Get the app", "#launch"]]
       .map(([t, h]) => ({ g: "On this page", t, h, icon: "i-list" })),
     ...CH.map(([code, name]) => ({ g: "Channels", t: name, code, h: "#live", sub: "Live" })),
     ...[["The Salt Road", "Film"], ["Orbit Nine", "Film"], ["Glass Harbour", "Film"], ["Paper Moons", "Film"], ["Kingdom of Glass", "Series"], ["The Long Season", "Series"]]
