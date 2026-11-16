@@ -135,6 +135,6 @@ PAGES = [
      [("who", "Who we are"), ("app", "The app"), ("site", "This website"), ("rights", "Your rights"), ("children", "Children"), ("changes", "Changes")], PRIVACY),
     ("terms.html", "Lumavu Terms", "Terms", "Terms of use",
      [("agreement", "These terms"), ("content", "What Lumavu is"), ("pro", "Lumavu Pro"), ("use", "Using it fairly"), ("software", "Open source"), ("liability", "If something goes wrong"), ("changes", "Changes and contact")], TERMS),
-    ("support.html", "Lumavu Support", "Support", "Help with Lumavu",
+    ("support.html", "Support — Lumavu", "Support", "Help with Lumavu",
      [("start", "Getting started"), ("faq", "Common questions"), ("pro", "Pro and purchases"), ("contact", "Contact us")], SUPPORT),
 ]

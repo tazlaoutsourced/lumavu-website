@@ -247,7 +247,11 @@ def build_page(fname, title, eyebrow, h1, toc, content, fonts_html):
     toc_html = "".join(f'<a href="#{a}">{t}</a>' for a, t in toc)
     nav = "".join(f'<a href="{f}"{" aria-current=\"page\"" if f == fname else ""}>{n}</a>'
                   for f, n in (("support.html", "Support"), ("privacy.html", "Privacy"), ("terms.html", "Terms")))
-    head = (f"<title>{title}</title>\n<meta name=\"description\" content=\"{h1} for Lumavu, the IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV.\">\n"
+    if fname == "support.html":
+        description = "Help with Lumavu, the IPTV player for iPhone, iPhone Duo, iPad and Apple TV."
+    else:
+        description = f"{h1} for Lumavu, the IPTV player for iPhone, iPhone Duo, iPad, Mac and Apple TV."
+    head = (f"<title>{title}</title>\n<meta name=\"description\" content=\"{description}\">\n"
             f'<link rel="canonical" href="https://lumavu.app/{fname[:-5]}">\n'
             f'<meta name="theme-color" content="#07060d">\n<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">\n'
             f'<link rel="apple-touch-icon" href="assets/img/icon-180.png">\n{fonts_html}\n<style>\n{css}\n</style>')
@@ -280,6 +284,7 @@ def main():
         (ART / fname).write_text(build_page(fname, title, eyebrow, h1, toc, content, GOOGLE_FONTS))
     # Cloudflare extras
     (PUB / "_headers").write_text(headers_file(PUB))
+    (PUB / "_redirects").write_text("https://www.lumavu.app/*  https://lumavu.app/:splat  301\n")
     (PUB / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: https://lumavu.app/sitemap.xml\n")
     urls = "".join(f"  <url><loc>https://lumavu.app/{p}</loc></url>\n" for p in ("", "support", "privacy", "terms"))
     (PUB / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
