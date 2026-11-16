@@ -804,7 +804,7 @@ button, .tile, [role=button] { -webkit-tap-highlight-color: transparent; touch-a
 .platforms li + li { border-left: 1px solid var(--line); }
 .platforms b { font: var(--wd-2) clamp(1.5rem, 3vw, 2.3rem)/1 var(--display); letter-spacing: var(--tr-2); }
 .platforms span { font-size: .84rem; color: var(--faint); }
-/* Apple TV and Mac aren't out yet: their names sit back until they are */
+/* Platforms not out yet (the Mac): the name sits back until it is */
 .platforms li.soon b { opacity: .5; }
 @media (max-width: 640px) { .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); } .platforms li:nth-child(3) { border-left: 0; } .platforms li:nth-child(n+3) { border-top: 1px solid var(--line); } }
 
