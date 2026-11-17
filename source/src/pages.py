@@ -1,4 +1,7 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
+# Comparison pages append a seventh meta dict. See compare.py.
+from compare import COMPARE_PAGES, COMPARE_LINKS  # noqa: E402
+
 UPDATED = "9 November 2026"
 PRIVACY_UPDATED = "9 November 2026"
 CONTACT = "hello@thinkersandbuilders.co.uk"
@@ -137,4 +140,5 @@ PAGES = [
      [("agreement", "These terms"), ("content", "What Lumavu is"), ("pro", "Lumavu Pro"), ("use", "Using it fairly"), ("software", "Open source"), ("liability", "If something goes wrong"), ("changes", "Changes and contact")], TERMS),
     ("support.html", "Support — Lumavu", "Support", "Help with Lumavu",
      [("start", "Getting started"), ("faq", "Common questions"), ("pro", "Pro and purchases"), ("contact", "Contact us")], SUPPORT),
+    *COMPARE_PAGES,
 ]
