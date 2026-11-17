@@ -70,3 +70,16 @@ footer .r { margin-left: auto; }
 .brand svg path { fill: var(--mark); }
 .brand svg.wm { width: 80.6px; height: 16.6px; filter: none; }
 .brand .wm path { fill: currentColor; }
+
+footer .compare { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 4px; }
+footer .compare a[aria-current] { color: var(--text); }
+.cmp-wrap { overflow-x: auto; margin: 28px 0; -webkit-overflow-scrolling: touch; }
+.cmp { width: 100%; border-collapse: collapse; min-width: 32em; }
+.cmp th, .cmp td { text-align: left; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cmp thead th { font: 600 .92rem/1.35 var(--sans); color: var(--text); }
+.cmp tbody th { font: 600 .95rem/1.45 var(--sans); color: var(--text); width: 26%; }
+.cta-row { margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+a.cta { display: inline-flex; align-items: center; height: 42px; padding: 0 18px; border-radius: 21px; font: 600 .94rem/1 var(--sans); background: var(--text); color: var(--bg); text-decoration: none; }
+a.cta:hover { opacity: .92; }
+.also-list { margin-top: 8px; }
+.note { color: var(--faint); font-size: .88rem; margin-top: 48px; max-width: 40em; }
