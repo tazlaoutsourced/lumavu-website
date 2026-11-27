@@ -1,6 +1,6 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
 # Comparison pages append a seventh meta dict. See compare.py.
-from compare import COMPARE_PAGES, COMPARE_LINKS  # noqa: E402
+from guides import COMPARE_PAGES, COMPARE_LINKS, GUIDE_DATES, SITE_UPDATED  # noqa: E402,F401
 
 UPDATED = "9 November 2026"
 PRIVACY_UPDATED = "9 November 2026"
