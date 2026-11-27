@@ -1,1 +1,2 @@
-https://www.lumavu.app/*  https://lumavu.app/:splat  301
+# www.lumavu.app -> lumavu.app is a Cloudflare Redirect Rule on the zone, not a Pages rule.
+# Pages already sends /page.html to /page with a 308.

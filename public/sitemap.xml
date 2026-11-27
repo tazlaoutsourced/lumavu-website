@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lumavu.app/</loc></url>
-  <url><loc>https://lumavu.app/support</loc></url>
-  <url><loc>https://lumavu.app/privacy</loc></url>
-  <url><loc>https://lumavu.app/terms</loc></url>
-  <url><loc>https://lumavu.app/lumavu-vs-tivimate</loc></url>
-  <url><loc>https://lumavu.app/best-jellyfin-player-apple-tv</loc></url>
-  <url><loc>https://lumavu.app/iptv-smarters-alternative</loc></url>
-  <url><loc>https://lumavu.app/best-iptv-player-iphone-duo</loc></url>
+  <url><loc>https://lumavu.app/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/support</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/privacy</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://lumavu.app/terms</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://lumavu.app/best-iptv-player-iphone-ipad-apple-tv</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/best-iptv-player-iphone-duo</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/iphone-duo-video-player-apps</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/m3u-player-iphone</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/xtream-codes-player-apple-tv</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/best-jellyfin-player-apple-tv</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/lumavu-vs-tivimate</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://lumavu.app/iptv-smarters-alternative</loc><lastmod>2026-11-27</lastmod></url>
 </urlset>

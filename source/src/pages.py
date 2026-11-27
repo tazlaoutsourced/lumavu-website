@@ -1,6 +1,6 @@
 # Content for the reading pages. Each entry: (filename, title, eyebrow, h1, toc, article_html)
 # Comparison pages append a seventh meta dict. See compare.py.
-from compare import COMPARE_PAGES, COMPARE_LINKS  # noqa: E402
+from guides import COMPARE_PAGES, COMPARE_LINKS, GUIDE_DATES, SITE_UPDATED  # noqa: E402,F401
 
 UPDATED = "9 November 2026"
 PRIVACY_UPDATED = "9 November 2026"
@@ -17,8 +17,8 @@ PRIVACY = f"""
 
 <h2 id="app">The Lumavu app</h2>
 <h3>Playlists, accounts and servers you add</h3>
-<p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. Passwords are kept in your device's Keychain. Lumavu connects straight from your device to those servers to fetch channels, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
-<h3>Sample movies and channels</h3>
+<p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. Passwords are kept in your device's Keychain. Lumavu connects straight from your device to those servers to fetch playlists, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
+<h3>Sample movies and series</h3>
 <p>If you choose to try the sample movies and series, Lumavu plays them straight from the organisations that publish them, such as the Blender Foundation, Apple and broadcasters that stream for free. Those services see an ordinary web request from your device. Nothing else is sent.</p>
 <h3>Live subtitles and translation</h3>
 <p>Live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
@@ -56,7 +56,7 @@ PRIVACY = f"""
 TERMS = f"""
 <p class="updated">Last updated {UPDATED}</p>
 <div class="summary">
-  <p><strong>The short version.</strong> Lumavu is a video player. It doesn't come with any channels, films or series, so only add playlists and servers you have the right to watch. Lumavu Pro is a subscription or a one-off purchase through Apple, and you manage it in your Apple Account.</p>
+  <p><strong>The short version.</strong> Lumavu is a video player. It doesn't come with any content, so only add playlists and servers you have the right to watch. Lumavu Pro is a subscription or a one-off purchase through Apple, and you manage it in your Apple Account.</p>
 </div>
 
 <h2 id="agreement">These terms</h2>
@@ -65,8 +65,8 @@ TERMS = f"""
 <h2 id="content">What Lumavu is, and isn't</h2>
 <ul>
   <li><strong>Lumavu is a player.</strong> It plays playlists, accounts, servers and guides that you add yourself.</li>
-  <li><strong>We don't provide content.</strong> We don't sell, host, list or recommend channels, films, series or playlists, and we have no connection with the people who do.</li>
-  <li><strong>You're responsible for what you add.</strong> Only add sources you're allowed to watch, and follow your provider's terms. Some providers don't allow recording or downloading, for example.</li>
+  <li><strong>We don't provide content.</strong> We don't sell, host, list or recommend content or playlists, and we have no connection with the people who do.</li>
+  <li><strong>You're responsible for what you add.</strong> Only add sources you're allowed to watch, and follow the terms of your source. Some sources don't allow recording or downloading, for example.</li>
   <li><strong>We can't vouch for third-party streams.</strong> Their quality, availability and content are up to whoever runs them.</li>
 </ul>
 
@@ -80,13 +80,13 @@ TERMS = f"""
 <p>One purchase works on all your Apple devices signed in to the same Apple Account. Pro isn't shared through Family Sharing. You can manage or cancel a subscription in your Apple Account settings. Refunds are handled by Apple under its own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
 
 <h2 id="use">Using Lumavu fairly</h2>
-<p>Please don't use Lumavu to break the law, infringe anyone's rights, try to get around the limits of a provider's account, or take the app apart to make a competing product, except where the law allows it.</p>
+<p>Please don't use Lumavu to break the law, infringe anyone's rights, try to get around the limits of an account, or take the app apart to make a competing product, except where the law allows it.</p>
 
 <h2 id="software">Open-source software</h2>
 <p>Lumavu includes open-source software, used under its own licences. Nothing in these terms limits the rights those licences give you.</p>
 
 <h2 id="liability">If something goes wrong</h2>
-<p>We want Lumavu to be reliable, but it's provided as it is, and we can't promise it will work with every provider or stream. Nothing in these terms limits your rights as a consumer under the law, or our liability for death or personal injury caused by our negligence, or for fraud. Otherwise, to the extent the law allows, we aren't liable for losses caused by third-party content or services, or for losses we couldn't reasonably have foreseen.</p>
+<p>We want Lumavu to be reliable, but it's provided as it is, and we can't promise it will work with every source or stream. Nothing in these terms limits your rights as a consumer under the law, or our liability for death or personal injury caused by our negligence, or for fraud. Otherwise, to the extent the law allows, we aren't liable for losses caused by third-party content or services, or for losses we couldn't reasonably have foreseen.</p>
 
 <h2 id="changes">Changes and contact</h2>
 <p>We may update these terms when the app changes. We'll update the date at the top and, for significant changes, tell you in the app. These terms are governed by the law of England and Wales. If you have a question about them, email <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>
@@ -98,22 +98,22 @@ SUPPORT = f"""
 <h2 id="start">Getting started</h2>
 <ol class="steps">
   <li><span><strong>Get Lumavu.</strong> It's free on the <a href="https://apps.apple.com/app/lumavu-iptv-player/id6829302513" target="_blank" rel="noopener">App Store</a> for iPhone, iPhone Duo, iPad and Apple TV. The Mac version comes next.</span></li>
-  <li><span><strong>Add a playlist.</strong> Open Lumavu and choose Add playlist. Pick Xtream Codes, M3U (a link or a file), Jellyfin or Emby, and fill in the details your provider gave you.</span></li>
+  <li><span><strong>Add a playlist.</strong> Open Lumavu and choose Add playlist. Pick Xtream Codes, M3U (a link or a file), Jellyfin or Emby, and fill in the details you were given.</span></li>
   <li><span><strong>Give it a name, a colour and an icon.</strong> They show in the sidebar, which helps once you have more than one.</span></li>
-  <li><span><strong>Add a guide if you need one.</strong> Xtream accounts usually bring their own. For M3U playlists, add the XMLTV link your provider gives you, in the playlist's settings.</span></li>
+  <li><span><strong>Add a guide if you need one.</strong> Xtream accounts usually bring their own. For M3U playlists, add the XMLTV link you were given, in the playlist's settings.</span></li>
   <li><span><strong>No playlist yet?</strong> Choose <em>Try sample movies and series</em> on the first screen to have a look around.</span></li>
 </ol>
 
 <h2 id="faq">Common questions</h2>
 <div class="qa">
-  <details><summary>Does Lumavu come with channels?</summary><div class="a"><p>No. Lumavu is a player for your own playlists and servers. We don't sell or recommend playlists.</p></div></details>
-  <details><summary>A channel won't play. What can I try?</summary><div class="a"><p>If the channel has more than one copy in your playlists, Lumavu moves to another copy by itself. You can also open the player's ⋯ menu and switch to the other video player, or choose a different copy. In Settings, under Video player, you can set which player Lumavu uses. If nothing plays at all, check the account is active in the playlist's details, where Lumavu shows its expiry date and how many streams it allows.</p></div></details>
-  <details><summary>Why does a Multiview tile say the account is full?</summary><div class="a"><p>Each tile is its own stream, and most IPTV accounts allow only one or two at once. Lumavu plays a channel from another playlist if it has a free stream, and starts the waiting tile by itself when another tile closes.</p></div></details>
+  <details><summary>Does Lumavu come with anything to watch?</summary><div class="a"><p>No. Lumavu is a player for your own playlists and servers. We don't sell or recommend playlists.</p></div></details>
+  <details><summary>A stream won't play. What can I try?</summary><div class="a"><p>If the stream has more than one copy in your playlists, Lumavu moves to another copy by itself. You can also open the player's ⋯ menu and switch to the other video player, or choose a different copy. In Settings, under Video player, you can set which player Lumavu uses. If nothing plays at all, check the account is active in the playlist's details, where Lumavu shows its expiry date and how many streams it allows.</p></div></details>
+  <details><summary>Why does a Multiview tile say the account is full?</summary><div class="a"><p>Each tile is its own stream, and most IPTV accounts allow only one or two at once. Lumavu plays a stream from another playlist if it has a spare connection, and starts the waiting tile by itself when another tile closes.</p></div></details>
   <details><summary>Live subtitles aren't showing</summary><div class="a"><p>Live subtitles need iOS, iPadOS, macOS or tvOS 26. The first time you pick a language, Lumavu asks to download it, and says on screen while it does. Apple TV writes subtitles but doesn't translate them.</p></div></details>
-  <details><summary>Why can't I download this?</summary><div class="a"><p>Live channels can't be downloaded, and nor can links that only come as HLS (.m3u8). Downloads are part of Lumavu Pro, and on iPhone and iPad they wait for Wi‑Fi unless you allow mobile data in Settings, under Downloads. A download steps aside while you watch something from the same account, then carries on.</p></div></details>
+  <details><summary>Why can't I download this?</summary><div class="a"><p>Live streams can't be downloaded, and nor can links that only come as HLS (.m3u8). Downloads are part of Lumavu Pro, and on iPhone and iPad they wait for Wi‑Fi unless you allow mobile data in Settings, under Downloads. A download steps aside while you watch something from the same account, then carries on.</p></div></details>
   <details><summary>Does recording carry on when I close the app?</summary><div class="a"><p>No. Recordings run while Lumavu is open, on iPhone, iPad and Mac.</p></div></details>
   <details><summary>Can I hide categories I never watch?</summary><div class="a"><p>Yes. On any Live TV, Movies or Series page, open Choose categories. You can hide a whole language across Live TV, films and series in one tap, or a family of categories such as Sport, or single categories. You can also touch and hold a category to hide it.</p></div></details>
-  <details><summary>My playlists aren't showing on my other devices</summary><div class="a"><p>Sync is part of Lumavu Pro. Check that iCloud sync is on in Lumavu's settings, under iCloud, on each device, and that they're all signed in to the same iCloud account. Playlists imported from a file stay on the device you imported them on, so if your provider gives you a link, add that instead.</p></div></details>
+  <details><summary>My playlists aren't showing on my other devices</summary><div class="a"><p>Sync is part of Lumavu Pro. Check that iCloud sync is on in Lumavu's settings, under iCloud, on each device, and that they're all signed in to the same iCloud account. Playlists imported from a file stay on the device you imported them on, so if you were given a link, add that instead.</p></div></details>
   <details><summary>How does Lumavu look on iPhone Duo?</summary><div class="a"><p>With the phone closed, the outside screen shows the iPhone layout, with tabs along the bottom. Open it and the inside screen switches to the iPad layout, with your playlists in a sidebar. Anything that's playing carries on as you open or close it. It's the same app and the same purchase as on iPhone.</p></div></details>
   <details><summary>Does it work with Jellyfin and Emby live TV?</summary><div class="a"><p>Not yet. Films and series from Jellyfin and Emby work today.</p></div></details>
   <details><summary>Is there Chromecast?</summary><div class="a"><p>Not at the moment. AirPlay works from iPhone, iPad and Mac, for streams that play in Apple's player.</p></div></details>
