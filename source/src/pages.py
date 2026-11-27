@@ -2,40 +2,50 @@
 # Comparison pages append a seventh meta dict. See compare.py.
 from guides import COMPARE_PAGES, COMPARE_LINKS, GUIDE_DATES, SITE_UPDATED  # noqa: E402,F401
 
-UPDATED = "9 November 2026"
-PRIVACY_UPDATED = "9 November 2026"
+UPDATED = "19 November 2026"
+PRIVACY_UPDATED = "19 November 2026"
 CONTACT = "hello@thinkersandbuilders.co.uk"
 
 PRIVACY = f"""
 <p class="updated">Last updated {PRIVACY_UPDATED}</p>
 <div class="summary">
-  <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you. There are no accounts, no ads and no analytics. It connects to Apple and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud, your playlists and lists are kept in your own iCloud account, which we can't see. This website doesn't collect anything either. The waitlist it used to have is closed: if you joined it, we keep your email address only until we've told you Lumavu is out.</p>
+  <p><strong>The short version.</strong> The Lumavu app doesn't collect anything about you, on Apple devices or on Android. There are no accounts, no ads and no analytics. It connects to Apple or Google for purchases and to whatever your playlists point to, and nothing comes to us. If you sync with iCloud on Apple devices, your playlists and lists are kept in your own iCloud account, which we can't see. On Android, everything stays on the device. This website doesn't collect anything either. The waitlist it used to have is closed: if you joined it, we keep your email address only until we've told you Lumavu is out.</p>
 </div>
 
 <h2 id="who">Who we are</h2>
 <p>Lumavu is made by Thinkers &amp; Builders ("we", "us"). If you have a question about this policy or your data, email <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>
 
 <h2 id="app">The Lumavu app</h2>
+<p>This covers Lumavu on iPhone, iPad, Mac and Apple TV, and on Android phones, tablets and TVs.</p>
 <h3>Playlists, accounts and servers you add</h3>
-<p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. Passwords are kept in your device's Keychain. Lumavu connects straight from your device to those servers to fetch playlists, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
+<p>When you add an Xtream Codes account, an M3U playlist, a Jellyfin or Emby server, or a guide, Lumavu stores its details on your device. On Apple devices, passwords are kept in your device's Keychain. On Android, they're sealed with a key held in the device's own secure key store. When you sign in to a Jellyfin or Emby server, the server gives Lumavu a sign-in key, which is kept the same way, and removing the playlist signs Lumavu out of the server. Lumavu connects straight from your device to those servers to fetch playlists, guides, artwork and video. We never receive these details, and we never see what you watch. The companies that run those servers have their own privacy policies, and they will see the connections your device makes to them, as with any app or website.</p>
 <h3>Sample movies and series</h3>
 <p>If you choose to try the sample movies and series, Lumavu plays them straight from the organisations that publish them, such as the Blender Foundation, Apple and broadcasters that stream for free. Those services see an ordinary web request from your device. Nothing else is sent.</p>
 <h3>Live subtitles and translation</h3>
-<p>Live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
-<h3>iCloud sync</h3>
+<p>On Apple devices, live subtitles use Apple's speech recognition and translation, running on your device. The audio and the text it produces stay on your device. The first time you use a language, its language files are downloaded from Apple.</p>
+<h3>iCloud sync on Apple devices</h3>
 <p>Lumavu can keep your playlists (with their logins), favourites, lists, watch progress, hidden and locked categories, extra guides and settings the same on every iPhone, iPad, Mac and Apple TV signed in to your iCloud account. Sync is part of Lumavu Pro. Once you have Pro, it's on unless you turn it off in Lumavu's settings, under iCloud. This uses Apple's iCloud storage in your own account. Apple stores it under your Apple Account, and we can't see it or get at it. Downloads, recordings and playlists imported from a file aren't synced.</p>
+<p>Lumavu on Android doesn't sync, so everything stays on the device. Android and Apple devices don't share playlists, lists or purchases with each other.</p>
+<h3>Parental controls</h3>
+<p>If you set a PIN, Lumavu keeps only a scrambled form of it (a salted hash), never the PIN itself, along with which categories you've locked. On Apple devices these go with your other settings through iCloud if sync is on. On Android they stay on the device.</p>
+<h3>Reminders, notifications and alarms</h3>
+<p>Reminders for programmes are notifications scheduled on your device. On Android phones and tablets, Lumavu also shows a notification while a download or recording is saving, and sets an alarm so that a recording or reminder you've scheduled starts on time. None of this sends anything anywhere.</p>
+<h3>Google TV's Continue watching row</h3>
+<p>On Android TVs with Google TV, Lumavu adds films and episodes you're part way through to the TV's own Continue watching row, so you can carry on from the home screen. It takes them off when you finish them or remove the playlist. The row is part of your TV's software, and Google's own privacy policy covers how Google handles it.</p>
 <h3>What stays on your device</h3>
 <ul>
   <li>Recordings, and downloaded films and episodes.</li>
   <li>Playlists imported from a file.</li>
-  <li>Everything else listed under iCloud sync, if you don't have Pro or you've turned sync off.</li>
+  <li>On Apple devices, everything else listed under iCloud sync, if you don't have Pro or you've turned sync off. On Android, everything.</li>
   <li>The app's logs. They stay on your device unless you choose to share them with us.</li>
-  <li>Backups, which are saved as files wherever you choose.</li>
+  <li>Backups, which are saved as files wherever you choose. A backup includes your playlists' logins, so keep it somewhere private.</li>
 </ul>
 <h3>Purchases</h3>
-<p>Lumavu Pro is sold by Apple through the App Store. Apple handles payment and never shares your payment details with us, and the app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
+<p>On Apple devices, Lumavu Pro is sold by Apple through the App Store. Apple handles payment and never shares your payment details with us, and the app only checks with Apple whether Pro is active on your device. Apple gives developers sales reports that don't identify you.</p>
+<p>On Android, Lumavu Pro is sold by Google through Google Play. Google handles payment and doesn't share your payment details with us, and the app only checks with Google Play whether Pro is active. Google gives developers reports of orders, which we use only for our accounts and to help with refunds or problems you raise with us.</p>
 <h3>Crash reports</h3>
 <p>If you've chosen to share analytics with app developers in your device's settings, Apple may send us crash reports and usage figures that don't identify you. You can turn this off in Settings, under Privacy &amp; Security, Analytics &amp; Improvements.</p>
+<p>On Android, if you've allowed your device to share usage and diagnostics, Google may give us crash reports and performance figures that don't identify you. Lumavu adds nothing of its own.</p>
 
 <h2 id="site">This website</h2>
 <h3>The waitlist</h3>
@@ -44,7 +54,7 @@ PRIVACY = f"""
 <p>The site is hosted by Cloudflare, which processes technical information such as your IP address to deliver the pages and protect them from abuse. The waitlist sign-ups are stored with Cloudflare too. The site sets no cookies, runs no analytics and loads no third-party trackers. Its fonts are served from the site itself.</p>
 
 <h2 id="rights">Your rights</h2>
-<p>Under UK data protection law you can ask us for a copy of the personal data we hold about you, ask us to correct it, or ask us to delete it. For the waitlist that's your email address and nothing more. Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll reply within a month. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+<p>Under UK data protection law you can ask us for a copy of the personal data we hold about you, ask us to correct it, or ask us to delete it. For the waitlist that's your email address and nothing more. If you email us, we keep your message and address only as long as we need them to help you. Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll reply within a month. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
 <h2 id="children">Children</h2>
 <p>Lumavu doesn't collect personal data from anyone, including children. Parents can lock categories behind a PIN in the app's settings.</p>
@@ -56,11 +66,11 @@ PRIVACY = f"""
 TERMS = f"""
 <p class="updated">Last updated {UPDATED}</p>
 <div class="summary">
-  <p><strong>The short version.</strong> Lumavu is a video player. It doesn't come with any content, so only add playlists and servers you have the right to watch. Lumavu Pro is a subscription or a one-off purchase through Apple, and you manage it in your Apple Account.</p>
+  <p><strong>The short version.</strong> Lumavu is a video player. It doesn't come with any content, so only add playlists and servers you have the right to watch. Lumavu Pro is a subscription or a one-off purchase through Apple or Google Play, and you manage it in your Apple Account or in Google Play.</p>
 </div>
 
 <h2 id="agreement">These terms</h2>
-<p>These terms cover your use of the Lumavu app on iPhone, iPad, Mac and Apple TV, and of this website. Lumavu is made by Thinkers &amp; Builders ("we", "us"). They sit alongside Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement</a>, which also applies to apps from the App Store. If the two disagree, these terms apply to the extent the law and Apple allow.</p>
+<p>These terms cover your use of the Lumavu app on iPhone, iPad, Mac and Apple TV, on Android phones, tablets and TVs, and of this website. Lumavu is made by Thinkers &amp; Builders ("we", "us"). On Apple devices they sit alongside Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement</a>, which also applies to apps from the App Store, and on Android alongside the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a>. If they disagree, these terms apply to the extent the law, Apple and Google allow.</p>
 
 <h2 id="content">What Lumavu is, and isn't</h2>
 <ul>
@@ -71,13 +81,13 @@ TERMS = f"""
 </ul>
 
 <h2 id="pro">Lumavu Pro</h2>
-<p>Lumavu is free to use with one playlist on each device, one favourites list and the guide from yesterday to tomorrow. Lumavu Pro adds sync across your devices, the whole week's guide with reminders and extra guides, Multiview, recordings, downloads, and as many playlists and lists as you like. Pro is available as:</p>
+<p>Lumavu is free to use with one playlist on each device, one favourites list and the guide from yesterday to tomorrow. Lumavu Pro adds the whole week's guide with reminders and extra guides, Multiview, recordings, downloads, as many playlists and lists as you like, and sync across your Apple devices. Some of these depend on the device: recordings and downloads aren't on TVs, for example, and Lumavu on Android doesn't sync yet. Pro is available as:</p>
 <ul>
-  <li><strong>A monthly or yearly subscription.</strong> It renews automatically at the end of each period unless you turn off auto-renew at least 24 hours before the period ends. Payment is taken by Apple when you confirm the purchase and at each renewal.</li>
+  <li><strong>A monthly or yearly subscription.</strong> It renews automatically at the end of each period unless you turn off auto-renew at least 24 hours before the period ends. Payment is taken by Apple or Google when you confirm the purchase and at each renewal.</li>
   <li><strong>A free trial.</strong> The yearly plan includes 7 days free for new subscribers. Unless you cancel at least 24 hours before the trial ends, it becomes a paid yearly subscription.</li>
   <li><strong>A lifetime purchase.</strong> One payment, with no renewal.</li>
 </ul>
-<p>One purchase works on all your Apple devices signed in to the same Apple Account. Pro isn't shared through Family Sharing. You can manage or cancel a subscription in your Apple Account settings. Refunds are handled by Apple under its own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
+<p>A purchase on Apple devices works on all of them signed in to the same Apple Account, and a purchase on Android works on Android devices signed in to the same Google account. A purchase on one doesn't carry over to the other. Pro isn't shared through Family Sharing or Google Play's family library. You can manage or cancel a subscription in your Apple Account settings, or in Google Play under Payments and subscriptions. Refunds are handled by Apple or Google under their own policies. Prices are shown in the app before you buy and may change. A price change won't affect a period you've already paid for.</p>
 
 <h2 id="use">Using Lumavu fairly</h2>
 <p>Please don't use Lumavu to break the law, infringe anyone's rights, try to get around the limits of an account, or take the app apart to make a competing product, except where the law allows it.</p>
