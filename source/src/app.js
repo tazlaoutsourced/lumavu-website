@@ -257,7 +257,7 @@ void main(){
   /* ---------- Add playlist sheet ---------- */
   const FORMS = {
     xtream: { rows: [["Name", "Living Room", 1], ["Server", "http://line.example.tv:8080", 1], ["Username", "livingroom", 1], ["Password", "••••••••••", 1], ["Guide", "From the account", 0]], hint: "Your password goes in the Keychain and is only used to sign in here. If you sync with iCloud, it travels through your own account so your other devices can sign in too." },
-    m3u: { rows: [["Name", "World News", 1], ["Link", "https://example.org/playlists/news.m3u", 1], ["Or", "Choose a file…", 0], ["Guide URL", "https://example.org/guide.xml.gz", 1], ["Refresh", "Every day", 0]], hint: "Paste the guide link here too if your provider gave you one. You can also add it later, in the playlist's settings." },
+    m3u: { rows: [["Name", "World News", 1], ["Link", "https://example.org/playlists/news.m3u", 1], ["Or", "Choose a file…", 0], ["Guide URL", "https://example.org/guide.xml.gz", 1], ["Refresh", "Every day", 0]], hint: "Paste the guide link here too if you were given one. You can also add it later, in the playlist's settings." },
     jellyfin: { rows: [["Name", "Home Server", 1], ["Server", "http://192.168.1.20:8096", 1], ["Username", "home", 1], ["Password", "••••••••", 1], ["Library", "Films and series", 0]], hint: "Sign in once, and your films and series come across with their artwork." },
     emby: { rows: [["Name", "Media Room", 1], ["Server", "https://emby.example.net", 1], ["Username", "family", 1], ["Password", "••••••••", 1], ["Library", "Films and series", 0]], hint: "Works just like Jellyfin. Your library shows up in the sidebar under whatever name you give it." },
   };
@@ -299,7 +299,7 @@ void main(){
     const bar = $("#guideBar"); if (!bar) return;
     const day = (n) => { const d = new Date(NOW); d.setDate(d.getDate() + n); return d; };
     const fmt = new Intl.DateTimeFormat(undefined, { weekday: "short", day: "numeric", month: "short" });
-    const chips = [`<span class="chip"><svg class="ico"><use href="#i-filter"/></svg>All channels</span>`, `<span class="chip">Yesterday</span>`, `<span class="chip on">Today</span>`, `<span class="chip">Tomorrow</span>`];
+    const chips = [`<span class="chip"><svg class="ico"><use href="#i-filter"/></svg>All live</span>`, `<span class="chip">Yesterday</span>`, `<span class="chip on">Today</span>`, `<span class="chip">Tomorrow</span>`];
     for (let n = 2; n <= 5; n++) chips.push(`<span class="chip">${fmt.format(day(n))}</span>`);
     bar.innerHTML = chips.join("");
     const short = new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "numeric", month: "short" }).format(NOW).replace(",", "");
@@ -506,7 +506,7 @@ void main(){
     const X = (ms) => x0 + (ms / max) * (x1 - x0);
     const rows = [["Open the whole playlist", 18, "18 ms"], ["Open the whole guide", 16, "16 ms"], ["Search, for each letter you type", 0.7, "0.7 ms"]];
     const rowH = 62, topPad = 46, h = topPad + rows.length * rowH + 30;
-    let s = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Lumavu opens a 14,868-channel playlist in 18 milliseconds, its guide in 16 milliseconds, and searches in 0.7 milliseconds per letter, all far quicker than a blink, which takes 100 to 400 milliseconds.">`;
+    let s = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Lumavu opens a 14,868-stream playlist in 18 milliseconds, its guide in 16 milliseconds, and searches in 0.7 milliseconds per letter, all far quicker than a blink, which takes 100 to 400 milliseconds.">`;
     s += `<rect class="blink" x="${X(100)}" y="${topPad - 10}" width="${X(400) - X(100)}" height="${rows.length * rowH + 4}" rx="6"/>`;
     s += `<text class="blink-l" x="${X(100) + 2}" y="${topPad - 20}">A blink of an eye, 100 to 400 ms</text>`;
     [0, 100, 200, 300, 400].forEach((t) => {
@@ -637,7 +637,7 @@ void main(){
   const ITEMS = [
     ...[["Live TV and the guide", "#live"], ["When a stream drops", "#failover"], ["Multiview", "#multiview"], ["Live subtitles", "#subtitles"], ["Films and series", "#library"], ["Downloads", "#downloads"], ["Speed", "#speed"], ["Also starring", "#details"], ["Privacy", "#private"], ["Pricing and Lumavu Pro", "#pro"], ["Questions", "#faq"], ["Get the app", "#launch"]]
       .map(([t, h]) => ({ g: "On this page", t, h, icon: "i-list" })),
-    ...CH.map(([code, name]) => ({ g: "Channels", t: name, code, h: "#live", sub: "Live" })),
+    ...CH.map(([code, name]) => ({ g: "Live", t: name, code, h: "#live", sub: "Live" })),
     ...[["The Salt Road", "Film"], ["Orbit Nine", "Film"], ["Glass Harbour", "Film"], ["Paper Moons", "Film"], ["Kingdom of Glass", "Series"], ["The Long Season", "Series"]]
       .map(([t, k]) => ({ g: "Films and series", t, h: "#library", sub: k, icon: k === "Film" ? "i-film" : "i-tv" })),
     ...[["Support", "support.html"], ["Privacy policy", "privacy.html"], ["Terms of use", "terms.html"]].map(([t, h]) => ({ g: "Pages", t, h, icon: "i-info" })),
@@ -647,7 +647,7 @@ void main(){
   const renderPal = () => {
     const q = palInput.value;
     palShown = ITEMS.filter((it) => match(q, it.t));
-    if (!palShown.length) { palList.innerHTML = `<div class="pal-empty">Nothing called “${q.replace(/[<&]/g, "")}” here. Try a channel or a title</div>`; return; }
+    if (!palShown.length) { palList.innerHTML = `<div class="pal-empty">Nothing called “${q.replace(/[<&]/g, "")}” here. Try a stream or a title</div>`; return; }
     palSel = clamp(palSel, 0, palShown.length - 1);
     let html = "", g = "";
     palShown.forEach((it, i) => {
